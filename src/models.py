@@ -117,6 +117,10 @@ class Course(db.Model):
     # Relationships
     user_progress = db.relationship('UserCourse', backref='course', lazy=True)
 
+    def __repr__(self):
+        return f"<Course {self.title}>"
+
+
 
 class UserCourse(db.Model):
     __tablename__ = 'user_courses'

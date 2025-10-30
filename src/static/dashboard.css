@@ -338,14 +338,14 @@ aside p {
   font-size: 0.9rem;
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling 
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #e879f9;
   border-radius: 10px;
-}
+}*/
 
 
 /* Menstural tracker*/
@@ -529,7 +529,7 @@ aside p {
   transform: translateY(-1px);
 }
 
-/* Scrollbar Customization */
+/* Scrollbar Customization 
 #chat-box::-webkit-scrollbar {
   width: 6px;
 }
@@ -541,7 +541,44 @@ aside p {
 
 #chat-box::-webkit-scrollbar-thumb:hover {
   background: #ec4899;
-}
+}*/
+
+body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #faf9ff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+        }
+        h1 {
+            text-align: center;
+            color: #6a0dad;
+        }
+        .category-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            margin: 15px 0;
+            padding: 15px 20px;
+            transition: transform 0.2s;
+        }
+        .category-card:hover {
+            transform: translateY(-3px);
+        }
+        .category-card a {
+            text-decoration: none;
+            color: #6a0dad;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .category-desc {
+            color: #555;
+            margin-top: 5px;
+        }
 
 /* Fade-in Animation */
 @keyframes fadeIn {
@@ -554,4 +591,183 @@ aside p {
 }
 
 
+@media screen and (max-width: 768px) {
+  /* General adjustments */
+  body {
+    font-size: 14px;
+  }
 
+  h1, h2, h3 {
+    font-size: 1.2rem;
+  }
+
+  .container,
+  .main-container,
+  .tracker-card,
+  .chat-container,
+  section {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  /* Dashboard layout */
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sidebar,
+  .right-sidebar {
+    width: 100%;
+    border: none;
+    padding: 15px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  /* Mentor & Profile Cards */
+  .mentor-card,
+  .profile-card {
+    padding: 15px;
+    margin: 10px 0;
+  }
+
+  .buttons a {
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Community layout */
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  aside {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  section {
+    max-height: none;
+  }
+
+  /* Menstrual tracker */
+  .tracker-card {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+
+  /* Chat assistant */
+  .chat-container {
+    width: 100%;
+    height: auto;
+  }
+
+  #chat-box {
+    padding: 10px;
+  }
+
+  .input-area {
+    flex-direction: column;
+  }
+
+  #user-input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #send-btn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* Category cards */
+  .category-card {
+    padding: 10px;
+  }
+
+  .category-card a {
+    font-size: 1rem;
+  }
+
+  /* Sidebar nav links */
+  .sidebar nav a {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  /* Header adjustments (if applicable) */
+  .custom-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .custom-header .logo img {
+    width: 100px;
+    margin-bottom: 10px;
+  }
+
+  .custom-header nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .custom-links.show {
+    display: block;
+    width: 100%;
+    background-color: var(--header-bg);
+    border-top: 1px solid var(--border);
+  }
+
+  .custom-links ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .custom-links ul li {
+    text-align: center;
+  }
+}
+
+
+
+ @media (max-width: 600px) {
+  .container {
+    width: 95%;
+  }
+  h1 {
+    font-size: 1.4rem;
+  }
+  .category-card a {
+    font-size: 1rem;
+  }
+}

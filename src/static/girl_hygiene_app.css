@@ -21,6 +21,20 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
 }
+
+#menu-toggle {
+     display: none;
+ }
+
+/* Hamburger icon styling */
+.menu-icon {
+    display: none;
+    font-size: 32px;
+    color: var(--text);
+    cursor: pointer;
+ }
+
+
 /*custom header */
 .custom-header {
   background: var(--header-bg);
@@ -529,4 +543,194 @@ body {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+
+@media screen and (max-width: 768px) {
+  /* General adjustments */
+  body {
+    font-size: 14px;
+  }
+
+  /* Hide hamburger by default */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+        display: block;
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-left: auto;
+        cursor: pointer;
+        font-size: 32px;
+        padding: 10px;
+    }
+    .nav-bar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: transparent;
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 0;
+        box-shadow: none;
+        transition: max-height 0.3s ease;
+        overflow: hidden;
+        max-height: 0;
+    }
+    #menu-toggle:checked + .menu-icon + nav {
+        display: flex;
+        max-height: 500px; /* enough height to show menu */
+    }
+
+  .custom-links {
+    display: none;
+    width: 100%;
+    background-color: var(--header-bg);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 1000;
+    border-top: 1px solid var(--border);
+  }
+
+  .custom-links ul {
+    flex-direction: column;
+    margin: 0;
+    padding: 10px 0;
+    gap: 10px;
+  }
+
+  .custom-links ul li {
+    text-align: center;
+  }
+
+  .custom-links.show {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+  .custom-header,
+  .footer,
+  .hero,
+  .about,
+  .contact {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .logo img {
+    width: 100px;
+    margin: 0 auto;
+  }
+
+  .custom-links ul {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 15px;
+  }
+
+  .search-box {
+    width: 100%;
+    margin: 20px auto;
+  }
+
+  .hero img,
+  .about img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .hero-text,
+  .about-text,
+  .contact-text {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .hero-text h1,
+  .about-text h1 {
+    font-size: 28px;
+  }
+
+  .hero-text p,
+  .about-text p {
+    font-size: 16px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .authors {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .author img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .contact input,
+  .contact textarea {
+    width: 100%;
+  }
+
+  .custom-btn {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  #footer h4 {
+    top: 0;
+    margin-left: 0;
+    font-size: 24px;
+  }
+
+  .copyright {
+    font-size: 10px;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
 }

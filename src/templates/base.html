@@ -12,6 +12,8 @@
   <link rel="icon" type="images/png" href="{{ url_for('static', filename='images/her_aura.png')}}">
 </head>
 <body>
+    <!--input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">&#9776;</label-->
     <nav class="navbar navbar-expand-lg custom-header">
       <div class="container">
         <div class="logo"><a href="{{ url_for('mentor_bp.index')}}">
@@ -19,8 +21,9 @@
           </a>
         </div>
         <!--a class="navbar-brand" href="{{ url_for('mentor_bp.index') }}"><h2>HerAura</h2></a-->
-      
-        <div class="collapse navbar-collapse custom-links">
+          <input type="checkbox" id="menu-toggle" />
+          <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <div class="navbar-collapse custom-links">
           <ul class="navbar-nav ms-auto">
             {% if current_user.is_authenticated %}
               <div class="search-box">

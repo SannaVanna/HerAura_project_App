@@ -19,14 +19,23 @@
     </div>
     
     <div class="container">
-        <h1>Learn a Skill</h1>
-        {% for cat in categories %}
-        <div class="category-card">
-            <a href="{{ url_for('learn_bp.category_courses', cat_id=cat.id) }}">{{ cat.name }}</a>
-            <div class="category-desc">{{ cat.description }}</div>
+        <h1>{{ category.name }} Courses</h1>
+        {% for c in courses %}
+        <div class="course-card">
+            <div class="course-title">{{ c.title }}</div>
+            <div class="course-desc">{{ c.description }}</div>
+            <div class="links">
+                {% if c.video_link %}
+                <a href="{{ c.video_link }}" target="_blank">🎥 Watch Video</a>
+                {% endif %}
+                {% if c.notes_link %}
+                <a href="{{ c.notes_link }}" target="_blank">📘 View Notes</a>
+                {% endif %}
+            </div>
         </div>
         {% endfor %}
     </div>
+
 </div>
 
 {% endblock %}
