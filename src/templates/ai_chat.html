@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+<script src="{{ url_for('static', filename='js/ai_assistant.js') }}" defer></script>
+
+<div class="dashboard-container">
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <div class="top">
+        <nav>
+            <a href="{{ url_for('dashboard_bp.dashboard') }}" class="active">🏠 Dashboard</a>
+            <a href="{{ url_for('mentor_bp.mentors_page') }}">👩‍🏫 Mentor Connect</a>
+            <a href="{{ url_for('community_bp.community_page') }}">💬 Community</a>
+            <a href="{{ url_for('learn_bp.learn_skill') }}">🎓 Learn Skills</a>
+            <a href="{{ url_for('health_bp.health_tracker') }}">❤ Health Tracker</a>
+            <a href="{{ url_for('ai_bp.ai_chat') }}">🤖 AI Assistant</a>
+        </nav>
+        </div>
+    </div>
+    <div class="bg-white shadow-xl rounded-2xl w-[450px] h-[600px] flex flex-col overflow-hidden">
+        <!-- Header -->
+        <div class="bg-pink-500 text-black text-center py-3 font-bold text-lg">
+            🌸 Aura AI Assistant
+        </div>
+
+        <!-- Chat Box -->
+        <div id="chat-box" class="flex-1 p-4 overflow-y-auto space-y-3 text-gray-800 flex flex-col">
+            <div class="message ai">
+            <div class="icon aura-icon"></div>
+            <div class="p-3 bg-purple-50 rounded-xl self-start max-w-[80%]">
+                Hi Bestie 💕, I'm Aura, your AI assistant! How can I help you today?
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-3 border-t flex">
+            <input id="user-input"
+                    type="text"
+                    placeholder="Type your message..."
+                    class="flex-1 border rounded-xl p-2 focus:outline-none focus:ring-2 focus:ring-pink-400" />
+            <button id="send-btn"
+                    class="ml-2 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-xl font-semibold">
+                Send
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,96 @@
+/* community.css */
+
+body {
+  background: #fff7fb;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+/* Layout */
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Sidebars */
+aside {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+/* Headings */
+h2, h3 {
+  color: #b83280;
+}
+
+/* Community Post Section */
+section {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  overflow-y: auto;
+  max-height: 85vh;
+}
+
+/* Post Card */
+section .border {
+  border: none;
+  background: #fdf3f7;
+  transition: all 0.3s ease;
+}
+section .border:hover {
+  transform: translateY(-4px);
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(90deg, #c13584, #b83280);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+button:hover {
+  background: linear-gradient(90deg, #b83280, #c13584);
+}
+
+/* Comments Section */
+.border-l-2 {
+  border-color: #d946ef;
+  margin-top: 0.5rem;
+}
+.border-l-2 p strong {
+  color: #b83280;
+}
+
+/* Sidebar Widgets */
+aside h3 {
+  font-weight: 700;
+  color: #a21caf;
+}
+aside ul li {
+  padding: 0.3rem 0;
+  color: #555;
+}
+
+/* AI and Recent Chats Sidebar */
+aside p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #e879f9;
+  border-radius: 10px;
+}

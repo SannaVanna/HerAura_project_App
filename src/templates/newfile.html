@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerAura Login</title>
+  <!--link rel="stylesheet" href="style.css"-->
+  <style>
+    /* Basic page setup */
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at top left, #ffe6f2, #f8f0ff, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+
+/* Bubble container */
+.bubble-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Bubble design */
+.bubble {
+  position: absolute;
+  bottom: 100px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.05) 70%);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.7),
+    inset 10px 10px 30px rgba(255, 0, 150, 0.2),
+    inset -10px -10px 30px rgba(0, 255, 255, 0.2),
+    inset 20px -20px 30px rgba(255, 255, 0, 0.2);
+  animation: float 12s infinite ease-in-out, wobble 6s infinite ease-in-out;
+  opacity: 0.6;
+}
+
+/* Bubble floating motion */
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-500px) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1100px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Bubble wobbling effect */
+@keyframes wobble {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(20px) rotate(3deg); }
+  50% { transform: translateX(-20px) rotate(-3deg); }
+  75% { transform: translateX(10px) rotate(2deg); }
+}
+
+/* Different sizes and speeds */
+.bubble:nth-child(1) { left: 5%; width: 80px; height: 80px; animation-duration: 14s, 7s; }
+.bubble:nth-child(2) { left: 20%; width: 120px; height: 120px; animation-duration: 18s, 6s; }
+.bubble:nth-child(3) { left: 40%; width: 90px; height: 90px; animation-duration: 16s, 8s; }
+.bubble:nth-child(4) { left: 60%; width: 130px; height: 130px; animation-duration: 20s, 9s; }
+.bubble:nth-child(5) { left: 80%; width: 70px; height: 70px; animation-duration: 15s, 6.5s; }
+.bubble:nth-child(6) { left: 10%; width: 100px; height: 100px; animation-duration: 17s, 7s; }
+.bubble:nth-child(7) { left: 50%; width: 110px; height: 110px; animation-duration: 19s, 8s; }
+.bubble:nth-child(8) { left: 75%; width: 95px; height: 95px; animation-duration: 18s, 9s; }
+
+/* Login box styling */
+.login-box {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 182, 193, 0.4);
+  text-align: center;
+  width: 320px;
+  backdrop-filter: blur(10px);
+}
+
+.login-box h1 {
+  color: #ff4da6;
+  margin-bottom: 20px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ffb6c1;
+  border-radius: 10px;
+  outline: none;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #ff4da6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.login-box button:hover {
+  background: #e23d91;
+}
+
+  </style>
+</head>
+<body>
+  <div class="bubble-container">
+    <!-- Multiple bubbles -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <!-- Login Section (Center) -->
+  <div class="login-box">
+    <h1>Welcome to HerAura</h1>
+    <form>
+      <input type="text" placeholder="Email or Username" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+{% extends "base.html" %}
+{% block content %}
+   <section class="hero">
+        <div class="hero-text">
+            <p>Hello! i am <span>Audrey</span>, a Product Designer.</p>
+            <h1>I design beautiful, user-friendly web and mobile digital products.</h1>
+            <div class="buttons">
+                <a href="#" class="btn-primary">Contact Me</a>
+                <a href="resume.html" class="btn-secondary">My Resume</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/girl1.jpg')}}"/>
+        </div>
+    </section>
+  
+ <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column logo-social">
+          <div class="logo">
+            <img src="{{ url_for('static', filename='images/her_aura2.jpg')}}"/>
+          </div>
+          <p>Copyright © 2020 Nexcent ltd. <br>All rights reserved</p>
+          <div class="social-icons">
+            <img src="{{ url_for('static', filename='images/social Icons(1).png')}}" alt="Instagram">
+            <img src="{{ url_for('static', filename='images/Social Icons(2).png')}}" alt="Dribbble"> 
+            <img src="{{ url_for('static', filename='images/Social Icons(3).png')}}" alt="Twitter">
+            <img src="{{ url_for('static', filename='images/Social Icons.png')}}" alt="YouTube">
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li>About us</li>
+            <li>Blog</li>
+            <li>Contact us</li>
+            <li>Pricing</li>
+            <li>Testimonials</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li>Help center</li>
+            <li>Terms of service</li>
+            <li>Legal</li>
+            <li>Privacy policy</li>
+            <li>Status</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Stay up to date</h4>
+          <div class="subscribe-box">
+            <input type="email" placeholder="Your email address" class="form-control custom-input2s">
+            <a>
+              <img src="{{ url_for('static', filename='images/Send.png')}}" alt="Send">
+            </a>
+          </div>
+        </div>
+      </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container2">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h3>Login</h3>
+      <div class="bubble-container">
+        <!-- Multiple bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+      </div>
+      <form method="post" class="p-4 border rounded mt-3">
+        <div class="mb-3">
+          <label class="form-label custom-label1">Email</label>
+          <input name="email" type="email" class="form-control custom-input" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label custom-label1">Password</label>
+          <input name="password" type="password" class="form-control custom-input" required>
+        </div>
+        <button class="btn me-2 nav-btn1">Login</button>
+        <a class="btn me-2 nav-btn2" href="{{ url_for('mentor_bp.register')}}">Don't have an account</a>
+      </form>
+    </div>  
+  </div>
+</div>
+{%endblock%}

@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block content %}
+   <section class="hero">
+        <div class="hero-text">
+            <p>Welcome to<span> HerAura</span>.</p>
+            <h1>A DIgital safe space for girls.</h1>
+            <h1>Your daily guide to feminine wellness.</h1>
+            <div>
+              <p>Stay <span class="typed" data-typed-items="Clean., healthy.., safe..., Beautiful...., Confident...."></span></p>
+            </div>
+            <div class="buttons">
+                <a href="{{ url_for('mentor_bp.register') }}" class="btn-primary">Register</a>
+                <a href="{{ url_for('mentor_bp.login') }}" class="btn-secondary">login</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/girl11.png')}}"/>
+        </div>
+    </section>
+
+    <section class="about">
+      <div class="about-image">
+        <img src="{{ url_for('static', filename='images/group3.jpg')}}"/>
+      </div>
+      <div class="about-text">
+        <h1>🌷About<span> HerAura.</span></h1> 
+        <p>HerAura is a digital safe space built to empower, inspire, and connect girls and young women across the world. We believe every girl deserves access to guidance, mentorship, education, and a supportive community that helps her grow into the best version of herself.</p>
+        <p>At HerAura, girls can connect with successful female leaders and mentors, learn new skills from tech to arts and personal development, track their health and wellness, and build lasting friendships within a safe, encouraging environment.</p>
+        <p>Our mission is to nurture confidence, creativity, and purpose by providing the tools, community, and inspiration every girl needs to thrive. Whether you're seeking mentorship, learning opportunities, or just a friendly space to share your thoughts, HerAura is your digital home of growth and positivity.</p>
+        </p>
+      </div>
+    </section>
+
+    <div class="about-authors">
+        <h2>Meet The Founders</h2>
+        <div class="authors">
+          <div class="author">
+            <img src="{{ url_for('static', filename='images/person-f-12.jpg')}}"/>
+            <h3>Nora Godwin Teneke</h3>
+            <p>Nora Godwin is a technology enthusiast with a background in Computer Science (BSc) and Information Technology (MSc). She is passionate about using digital tools to enhance learning, promote sustainability, and empower young people in her community.</p>
+            <p>Nora's interests lie at the intersection of education, technology, and social impact — particularly in creating AI-powered and data-driven solutions aligned with the UN Sustainable Development Goals.</p>
+          </div>
+
+          <div class="author">
+            <img src="{{ url_for('static', filename='images/me22.png')}}"/>
+            <h3>Rita Okam</h3>
+            <p>Rita Okam is a tech-savvy innovator with a great background in software development. She is interested in areas such as fintech, web development, and automation, and is passionate about leveraging technology to drive impact and empowerment in her community.</p>
+            <p>She is passionate about using her skills to create meaningful solutions, empower others (females) through tech education, and contribute to sustainable development across Africa.</p>
+          </div>
+        </div>
+      </div>
+      
+  
+  <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-column logo-social">
+            <div class="logo">
+              <img src="{{ url_for('static', filename='images/her_aura2.jpg')}}"/>
+            </div>
+            <p>Copyright © 2020 Nexcent ltd. <br>All rights reserved</p>
+            <div class="social-icons">
+              <img src="{{ url_for('static', filename='images/social Icons(1).png')}}" alt="Instagram">
+              <img src="{{ url_for('static', filename='images/Social Icons(2).png')}}" alt="Dribbble"> 
+              <img src="{{ url_for('static', filename='images/Social Icons(3).png')}}" alt="Twitter">
+              <img src="{{ url_for('static', filename='images/Social Icons.png')}}" alt="YouTube">
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li>About us</li>
+              <li>Blog</li>
+              <li>Contact us</li>
+              <li>Pricing</li>
+              <li>Testimonials</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li>Help center</li>
+              <li>Terms of service</li>
+              <li>Legal</li>
+              <li>Privacy policy</li>
+              <li>Status</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Stay up to date</h4>
+            <div class="subscribe-box">
+              <input type="email" placeholder="Your email address" class="form-control custom-input2s">
+              <a>
+                <img src="{{ url_for('static', filename='images/Send.png')}}" alt="Send">
+              </a>
+            </div>
+          </div>
+        </div>
+  </footer>
+
+{%endblock%}

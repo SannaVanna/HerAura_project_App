@@ -1,0 +1,107 @@
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --card-bg: #f5f6fa;
+  --header-bg: #ffffff;
+  --accent: #EA3680;
+  --border: #ddd;
+}
+
+body.dark {
+  --bg: #18191a;
+  --text: #e4e6eb;
+  --card-bg: #242526;
+  --header-bg: #242526;
+  --border: #585757;
+}
+
+/* LEFT SIDEBAR */
+.sidebar {
+  background:var(--bg);
+  border-right: 1px solid #eee;
+  height: inherit;
+  padding: 25px 0;
+}
+
+.sidebar .logo {
+  text-align: center;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 12px 20px;
+  color:var(--text);
+  text-decoration: none;
+  border-radius: 10px;
+  margin: 6px 10px;
+  transition: 0.3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: var(--bg);
+  color: var(--text);
+}
+
+
+/* Chat layout */
+#chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 80%;
+}
+
+.message.ai {
+  flex-direction: row;
+  align-self: flex-start;
+}
+
+.message.user {
+  flex-direction: row-reverse;
+  align-self: flex-end;
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.aura-icon {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/4712/4712109.png');
+}
+
+.user-icon {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/4140/4140048.png');
+}
+
+.bubble {
+  padding: 10px 14px;
+  border-radius: 18px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.4;
+}
+
+.message.ai .bubble {
+  background-color: #f3e8ff;
+  color: #3b0764;
+}
+
+.message.user .bubble {
+  background-color: #ffe4ef;
+  color: #5b2245;
+  text-align: right;
+}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+
+<div class="dashboard-container">
+   <!-- LEFT SIDEBAR -->
+  <div class="sidebar">
+    <div class="top">
+      <nav>
+        <a href="{{ url_for('dashboard_bp.dashboard') }}" class="active">🏠 Dashboard</a>
+        <a href="{{ url_for('mentor_bp.mentors_page') }}">👩‍🏫 Mentor Connect</a>
+        <a href="{{ url_for('community_bp.community_page') }}">💬 Community</a>
+        <a href="{{ url_for('learn_bp.learn_skill') }}">🎓 Learn Skills</a>
+        <a href="{{ url_for('health_bp.health_tracker') }}">❤ Health Tracker</a>
+        <a href="{{ url_for('ai_bp.ai_chat') }}">🤖 AI Assistant</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="tracker-card">
+    <h2>Menstrual Health Tracker 🩸</h2>
+    <p class="subtitle">Track your cycle, symptoms, and patterns with ease.</p>
+
+    <form action="{{ url_for('health_bp.health_tracker') }}" method="POST" class="tracker-form">
+      <label>Last Period Start Date:</label>
+      <input type="date" name="start_date" required>
+
+      <label>Cycle Length (in days):</label>
+      <input type="number" name="cycle_length" placeholder="e.g. 28" required>
+
+      <label>Notes or Symptoms:</label>
+      <textarea name="notes" placeholder="e.g. cramps, mood changes, etc."></textarea>
+
+      <button type="submit">Save Cycle</button>
+    </form>
+
+    <div class="next-period">
+      <h3>Next Predicted Period:</h3>
+      <p>{{ next_period_date if next_period_date else "Enter your data to see prediction" }}</p>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

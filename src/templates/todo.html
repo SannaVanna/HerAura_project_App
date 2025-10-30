@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>To-Do List</h2>
+    <form method="POST">
+        <input type="text" name="task" placeholder="Enter new task" required>
+        <select name="status">
+            <option value="pending">Pending</option>
+            <option value="done">Done</option>
+            <option value="cancelled">Cancelled</option>
+        </select>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <table border="1" style="margin-top:20px;">
+        <tr>
+            <th>ID</th><th>Task</th><th>Status</th><th>Action</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.task }}</td>
+            <td>{{ task.completed }}</td>
+            <td><a href="{{ url_for('todo.delete_task', task_id=task.id) }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

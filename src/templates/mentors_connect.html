@@ -1,0 +1,58 @@
+{%extends "base.html"%}
+{%block content%}
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+<div class="dashboard-container">
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <div class="top">
+            <nav>
+                <a href="{{ url_for('dashboard_bp.dashboard') }}" class="active">🏠 Dashboard</a>
+                <a href="{{ url_for('mentor_bp.mentors_page') }}">👩‍🏫 Mentor Connect</a>
+                <a href="{{ url_for('community_bp.community_page') }}">💬 Community</a>
+                <a href="{{ url_for('learn_bp.learn_skill') }}">🎓 Learn Skills</a>
+                <a href="{{ url_for('health_bp.health_tracker') }}">❤ Health Tracker</a>
+                <a href="{{ url_for('ai_bp.ai_chat') }}">🤖 AI Assistant</a>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Mentor Connect</h2>
+        {% if mentors %}
+            {% for mentor in mentors %}
+            <div class="mentor-card">
+                <img src="{{ url_for('static', filename='images/me2.png') }}" alt="Profile" class="profile-center">
+                <h3>{{ mentor.name }}</h3>
+                <p><strong>Title:</strong> {{ mentor.title }}</p>
+                <p><strong>Field:</strong> {{ mentor.field }}</p>
+                <!--p><strong>Bio:</strong> {{ mentor.bio }}</p>
+                <p><strong>Email:</strong> {{ mentor.contact_email }}</p-->
+                {% if mentor.contact_url %}
+                <p><strong>Website:</strong> 
+                    <a href="{{ mentor.contact_url }}" target="_blank">{{ mentor.contact_url }}</a>
+                </p>
+                {% endif %}
+
+                <div class="buttons">
+                    <a href="{{ url_for('mentor_bp.mentor_detail', mentor_id=mentor.id) }}">View Profile</a>
+                    <a href="mailto:{{ mentor.contact_email }}">Message</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-mentors">No mentors available yet.</p>
+        {% endif %}
+    </div>
+
+    <!-- RIGHT SIDEBAR (AURA ASSISTANT) >
+    <div class="right-sidebar">
+        <div class="chat-header">💗 Aura Assistant</div>
+            <div class="chat-body" id="chat-body">
+                <p><strong>Aura:</strong> Hi {{ current_user.first_name }}! How are you feeling today?</p>
+            </div>
+            <div class="chat-input">
+            <input type="text" id="msg" placeholder="Type something...">
+            <button>Send</button>
+        </div>
+    </div-->
+</div>    
+{%endblock%}
