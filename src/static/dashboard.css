@@ -25,7 +25,7 @@ body.dark {
 /* LEFT SIDEBAR */
 .sidebar {
   background:var(--bg);
-  border-right: 1px solid #eee;
+  border-right: 1px solid var(--border);
   height: inherit;
   padding: 25px 0;
 }
@@ -91,7 +91,7 @@ body.dark {
 }
 
 .card h2 {
-  color: #b14acf;
+  color: var(--accent);
   font-size: 1.1rem;
   margin-bottom: 10px;
 }
@@ -104,14 +104,14 @@ body.dark {
 
 .todo-list li {
   padding: 8px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border);
   font-size: 0.95rem;
 }
 
 /* RIGHT SIDEBAR - AURA ASSISTANT */
 .right-sidebar {
   background:var(--bg);
-  border-left: 1px solid #eee;
+  border-left: 1px solid var(--border);
   height: inherit;
   display: flex;
   flex-direction: column;
@@ -136,7 +136,7 @@ body.dark {
 
 .chat-input {
   display: flex;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border);
 }
 
 .chat-input input {
@@ -197,7 +197,7 @@ h2 {
 .buttons a {
   display: inline-block;
   background: var(--accent);
-  color: #fff;
+  color: var(--text);
   padding: 8px 14px;
   border-radius: 8px;
   text-decoration: none;
@@ -206,7 +206,7 @@ h2 {
   }
 
 .buttons a:hover {
-  background: #5b21b6;
+  background: rgba(253, 1, 140, 0.466);
 }
 
 .no-mentors {
@@ -241,7 +241,7 @@ p {
 .buttons a {
   text-decoration: none;
   background: var(--accent);
-  color: #fff;
+  color: var(--text);
   padding: 10px 18px;
   border-radius: 8px;
   margin-right: 10px;
@@ -249,7 +249,7 @@ p {
 }
 
 .buttons a:hover {
-  background: #5b21b6;
+  background:  rgba(253, 1, 140, 0.466);
 }
 
 /*COMMUNITY PAGE*/
@@ -281,7 +281,7 @@ h2, h3 {
 /* Community Post Section */
 section {
   background:var(--bg);
-  width: 900px;
+  width: 950px;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(110, 104, 104, 0.186);
   padding: 2rem;
@@ -392,7 +392,7 @@ aside p {
 }
 
 .tracker-form input, .tracker-form textarea {
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--text);
   border-radius: 10px;
   padding: 0.6rem;
   font-size: 0.9rem;
@@ -400,7 +400,7 @@ aside p {
 
 .tracker-form button {
   background: var(--accent);
-  color: white;
+  color: var(--text);
   border: none;
   border-radius: 10px;
   padding: 0.6rem;
@@ -429,7 +429,7 @@ aside p {
 .chat-container {
   width: 450px;
   height: 600px;
-  background-color: #fff;
+  background-color: var(--bg);
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -445,7 +445,7 @@ aside p {
 /* Header */
 .chat-header {
   background: linear-gradient(90deg, #f472b6, #ec4899);
-  color: white;
+  color: var(--text);
   text-align: center;
   padding: 12px;
   font-size: 1.2rem;
@@ -462,7 +462,8 @@ aside p {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: #fdf8ff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background-color: var(--text);
 }
 
 /* Message Bubbles */
@@ -476,14 +477,15 @@ aside p {
 }
 
 .user-message {
-  background-color: #ffe4ef;
+  background-color: var(--text);
   align-self: flex-end;
   border-bottom-right-radius: 4px;
   color: #5b2245;
 }
 
+
 .ai-message {
-  background-color: #f3e8ff;
+  background-color: var(--bg);
   align-self: flex-start;
   border-bottom-left-radius: 4px;
   color: #3b0764;
@@ -494,7 +496,7 @@ aside p {
   display: flex;
   padding: 10px;
   border-top: 1px solid #fbcfe8;
-  background-color: #fff;
+  background-color:var(--bg);
 }
 
 #user-input {
@@ -543,42 +545,36 @@ aside p {
   background: #ec4899;
 }*/
 
-body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #faf9ff;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 90%;
-            max-width: 900px;
-            margin: 30px auto;
-        }
-        h1 {
-            text-align: center;
-            color: #6a0dad;
-        }
-        .category-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            margin: 15px 0;
-            padding: 15px 20px;
-            transition: transform 0.2s;
-        }
-        .category-card:hover {
-            transform: translateY(-3px);
-        }
-        .category-card a {
-            text-decoration: none;
-            color: #6a0dad;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        .category-desc {
-            color: #555;
-            margin-top: 5px;
-        }
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+  }
+h1 {
+  text-align: center;
+  color: var(--accent);
+}
+.category-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin: 15px 0;
+  padding: 15px 20px;
+  transition: transform 0.2s;
+}
+.category-card:hover {
+  transform: translateY(-3px);
+}
+.category-card a {
+  text-decoration: none;
+  color: #6a0dad;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.category-desc {
+  color: #555;
+  margin-top: 5px;
+}
 
 /* Fade-in Animation */
 @keyframes fadeIn {
@@ -587,7 +583,7 @@ body {
 }
 
 .message {
-  animation: fadeIn 0.3s ease forwards;
+  animation: fadeIn 0.3s ease forwards;
 }
 
 
