@@ -22,21 +22,49 @@
     <p class="subtitle">Track your cycle, symptoms, and patterns with ease.</p>
 
     <form action="{{ url_for('health_bp.health_tracker') }}" method="POST" class="tracker-form">
-      <label>Last Period Start Date:</label>
+      <label>Age:</label>
+      <input type="date" name="start_date" required>
+      
+      <label>Cycle start Date:</label>
       <input type="date" name="start_date" required>
 
-      <label>Cycle Length (in days):</label>
-      <input type="number" name="cycle_length" placeholder="e.g. 28" required>
+      <label>Flow Days:</label>
+      <input type="number" name="flow days" placeholder="e.g. 28" required>
 
-      <label>Notes or Symptoms:</label>
-      <textarea name="notes" placeholder="e.g. cramps, mood changes, etc."></textarea>
+      <label>Mood / symptoms:</label>
+      <input type="text" name="mood" placeholder="e.g. normal, tired, sick" required>
+
+      <label>Notes:</label>
+      <textarea name="notes"></textarea>
 
       <button type="submit">Save Cycle</button>
     </form>
 
     <div class="next-period">
-      <h3>Next Predicted Period:</h3>
-      <p>{{ next_period_date if next_period_date else "Enter your data to see prediction" }}</p>
+      <h3>Your Recent Cycle logs:</h3>
+      {% if record %}
+        <table border="1" cellingpadding="8">
+          <tr>
+            <th>Date logged</th>
+            <th>Cycle Start</th>
+            <th>Flow Days</th>
+            <th>Mood/Symptoms</th>
+            <th>Health message</th>
+          </tr>
+          {% for record in records %}
+          <tr>
+            <td>{{ record.created_at.strftimr('%Y-%m-%d') }}</td>
+            <td>{{ record.cycle_start_date }}</td>
+            <td>{{ record.flow_days }}</td>
+            <td>{{ record.moods }}</td>
+            <td>{{ record.next_period_date }}</td>
+            <td>{{ record.health_message }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+      <p>No records yet. Submit your first cycle data above.</p>
+      {% endif %}
     </div>
   </div>
 

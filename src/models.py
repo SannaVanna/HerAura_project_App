@@ -148,14 +148,22 @@ class ToDo(db.Model):
 # HEALTH TRACKER (MENSTRUAL CYCLE)
 # -------------------------------
 class HealthTracker(db.Model):
-    __tablename__ = 'health_tracker'
-    id = db.Column(db.Integer, primary_key=True)
-    cycle_start_date = db.Column(db.Date, nullable=False)
-    cycle_length = db.Column(db.Integer, nullable=False)  # e.g., 28 days
-    symptoms = db.Column(db.Text)
+    _tablename__ = 'health_tracker'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)  # ✅ must be here
+    age = db.Column(db.Integer, nullable=False)
+    cycle_start_date = db.Column(db.String(50), nullable=False)
+    cycle_length = db.Column(db.Integer, nullable=False)
+    flow_days = db.Column(db.Integer, nullable=False)
+    mood = db.Column(db.String(50))
     notes = db.Column(db.Text)
-    next_period_date = db.Column(db.Date)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    next_period_date = db.Column(db.String(50))
+    health_message = db.Column(db.String(255))
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def __repr__(self):
+        return f"<HealthTracker UserID:{self.user_id} next_period:{self.next_period_date}>"
 
 
 # -------------------------------

@@ -21,9 +21,12 @@
     <div class="container">
         <h1>Learn a Skill</h1>
         {% for cat in categories %}
+        
         <div class="category-card">
-            <a href="{{ url_for('learn_bp.category_courses', cat_id=cat.id) }}">{{ cat.name }}</a>
-            <div class="category-desc">{{ cat.description }}</div>
+            <a href="{{ url_for('learn_bp.category_courses', cat_id=cat.id) }}">
+                <h5>{{ cat.name }}</h5>
+                <p>{{ cat.description }}</p>
+            </a>
         </div>
         {% endfor %}
     </div>

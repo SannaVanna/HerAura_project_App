@@ -2,7 +2,7 @@
 {%block content%}
 <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
     <div class="profile-card">
-        <img src="{{ url_for('static', filename='images/me2.png') }}" alt="Profile" class="profile-center">
+        <!--img src="{{ url_for('static', filename='images/daniel.jpg') }}" alt="Profile" class="profile-center"-->
         <h2>{{ mentor.name }}</h2>
         <p><strong>Title:</strong> {{ mentor.title }}</p>
         <p><strong>Field:</strong> {{ mentor.field }}</p>
@@ -13,11 +13,11 @@
             <a href="{{ mentor.contact_url }}" target="_blank">{{ mentor.contact_url }}</a>
         </p>
         {% endif %}
-        <p><strong>Registered On:</strong> {{ mentor.created_at.strftime('%Y-%m-%d') }}</p>
+        <p><strong>Registered On:</strong> {{ mentor.date_added.strftime('%Y-%m-%d') }}</p>
 
         <div class="buttons">
             <a href="mailto:{{ mentor.contact_email }}">Message Mentor</a>
-            <a href="{{ url_for('routes.mentors_page') }}" style="background:#888;">Back</a>
+            <a href="{{ url_for('mentor_bp.mentors_page') }}" style="background:#888;">Back</a>
         </div>
     </div>
 

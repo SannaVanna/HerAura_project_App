@@ -20,7 +20,7 @@
         {% if mentors %}
             {% for mentor in mentors %}
             <div class="mentor-card">
-                <img src="{{ url_for('static', filename='images/me2.png') }}" alt="Profile" class="profile-center">
+                <!--img src="{{ url_for('static', filename='images/me.jpg') }}" alt="Profile" class="profile-center"-->
                 <h3>{{ mentor.name }}</h3>
                 <p><strong>Title:</strong> {{ mentor.title }}</p>
                 <p><strong>Field:</strong> {{ mentor.field }}</p>
@@ -42,17 +42,5 @@
             <p class="no-mentors">No mentors available yet.</p>
         {% endif %}
     </div>
-
-    <!-- RIGHT SIDEBAR (AURA ASSISTANT) >
-    <div class="right-sidebar">
-        <div class="chat-header">💗 Aura Assistant</div>
-            <div class="chat-body" id="chat-body">
-                <p><strong>Aura:</strong> Hi {{ current_user.first_name }}! How are you feeling today?</p>
-            </div>
-            <div class="chat-input">
-            <input type="text" id="msg" placeholder="Type something...">
-            <button>Send</button>
-        </div>
-    </div-->
 </div>    
 {%endblock%}

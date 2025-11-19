@@ -11,3 +11,5 @@ def dashboard():
     todos = ToDo.query.filter_by(user_id=current_user.id).all()
     courses = UserCourse.query.filter_by(user_id=current_user.id).all()
     return render_template('dashboard.html', user=current_user, posts=user_posts, todos=todos, courses=courses)
+
+#@dashboard_bp.route()

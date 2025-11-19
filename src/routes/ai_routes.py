@@ -5,13 +5,13 @@ from src.models import AIChat
 from src.db import db
 import random
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 ai_bp = Blueprint('ai_bp', __name__)
 
 # Load environment variables
-load_dotenv()
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+#load_dotenv()
+#client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 @ai_bp.route('/ai', methods=['GET', 'POST'])
 @login_required

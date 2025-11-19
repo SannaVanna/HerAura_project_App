@@ -77,4 +77,5 @@ def api_add_course():
     )
     db.session.add(c)
     db.session.commit()
+    print(c)
     return jsonify({'ok': True, 'id': c.id}), 201

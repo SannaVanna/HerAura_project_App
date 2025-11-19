@@ -1,29 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="todo-container">
+  <form action="/add" method="POST" class="add-form">
+    <input type="text" name="title" placeholder="Add a new task..." required>
+    <button type="submit">Add</button>
+  </form>
 
-    <h2>To-Do List</h2>
-    <form method="POST">
-        <input type="text" name="task" placeholder="Enter new task" required>
-        <select name="status">
-            <option value="pending">Pending</option>
-            <option value="done">Done</option>
-            <option value="cancelled">Cancelled</option>
-        </select>
-        <button type="submit">Add Task</button>
-    </form>
-
-    <table border="1" style="margin-top:20px;">
-        <tr>
-            <th>ID</th><th>Task</th><th>Status</th><th>Action</th>
-        </tr>
-        {% for task in tasks %}
-        <tr>
-            <td>{{ task.id }}</td>
-            <td>{{ task.task }}</td>
-            <td>{{ task.completed }}</td>
-            <td><a href="{{ url_for('todo.delete_task', task_id=task.id) }}">Delete</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-
+  <ul class="task-list">
+    {% for task in tasks %}
+      <li class="{% if task.completed %}done{% endif %}">
+        {{ task.title }}
+        {% if not task.completed %}
+          <a href="/complete/{{ task.id }}" class="complete">✔</a>
+        {% endif %}
+        <a href="/delete/{{ task.id }}" class="delete">✖</a>
+      </li>
+    {% else %}
+      <p>No tasks yet. Add one above!</p>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock %}

@@ -172,6 +172,7 @@ h2 {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(110, 104, 104, 0.186);
   padding: 20px;
+  /*margin-left: ;*/
   margin-bottom: 20px;
   transition: 0.2s ease-in-out;
   }
@@ -361,8 +362,9 @@ aside p {
 .tracker-card {
   background: var(--bg);
   border-radius: 25px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  margin-left: 130px;
+  box-shadow: 0 4px 12px rgba(110, 104, 104, 0.186);;
+  margin-left: 230px;
+  margin-top: 50px;
   padding: 2rem 3rem;
   width: 450px;
   text-align: center;
@@ -483,7 +485,6 @@ aside p {
   color: #5b2245;
 }
 
-
 .ai-message {
   background-color: var(--bg);
   align-self: flex-start;
@@ -516,7 +517,7 @@ aside p {
 
 #send-btn {
   background: linear-gradient(90deg, #ec4899, #c026d3);
-  color: white;
+  color: var(--text);
   padding: 10px 16px;
   border: none;
   border-radius: 12px;
@@ -549,29 +550,34 @@ aside p {
   width: 90%;
   max-width: 900px;
   margin: 30px auto;
-  }
+}
+
 h1 {
   text-align: center;
   color: var(--accent);
 }
+
 .category-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background-color: var(--bg);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(110, 104, 104, 0.186);
   margin: 15px 0;
-  padding: 15px 20px;
-  transition: transform 0.2s;
+  padding: 20px 25px;
+  transition: transform 0.3s ease;
 }
+
 .category-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
 }
+
 .category-card a {
   text-decoration: none;
-  color: #6a0dad;
+  color: var(--accent);
   font-weight: 600;
   font-size: 1.1rem;
 }
-.category-desc {
+
+.category p {
   color: #555;
   margin-top: 5px;
 }

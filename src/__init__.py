@@ -11,6 +11,7 @@ from .routes.learn_routes import learn_bp
 from .routes.todo_routes import todo_bp
 from .routes.health_routes import health_bp
 from .routes.ai_routes import ai_bp
+from .routes.auth_routes import auth_bp
 
 
 # app = Flask(__name__, static_folder="static")
@@ -36,6 +37,7 @@ def create_app():
     app.register_blueprint(todo_bp)
     app.register_blueprint(health_bp)
     app.register_blueprint(ai_bp)
+    app.register_blueprint(auth_bp)
 
 
     with app.app_context():
