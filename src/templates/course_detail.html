@@ -14,12 +14,15 @@
             <a href="{{ url_for('learn_bp.learn_skill') }}">🎓 Learn Skills</a>
             <a href="{{ url_for('health_bp.health_tracker') }}">❤ Health Tracker</a>
             <a href="{{ url_for('ai_bp.ai_chat') }}">🤖 AI Assistant</a>
+            <a href="{{ url_for('todo_bp.todo_list') }}">📋To-Do list</a>
         </nav>
         </div>
     </div>
     
     <div class="container">
-        <a href="{{ url_for('learn_bp.learn_skill', cat_id=category.id) }}" style="background:#888;">Back</a>
+        <div class="buttons">
+            <a href="{{ url_for('learn_bp.learn_skill', cat_id=category.id) }}" style="background:#888;">Back</a>
+        </div>
         <h1>{{ category.name }} Courses</h1>
         {% for c in courses %}
         <div class="category-card">
@@ -29,7 +32,9 @@
                 <a href="{{ 'HTTPS://' + c.video_url if not c.video_url.startswith('http') else c.video_link}}">
                     🎥 Watch {{c.video_url}}
                 </a>
-                <a href="{{ c.notes_link }}" target="_blank">📘 View Course</a>
+                <div class="buttons">
+                 <a href="{{ c.notes_link }}" class="text-white" target="_blank">View Course</a>                    
+                </div>
             </div>
         </div>
         {% endfor %}

@@ -14,6 +14,7 @@
             <a href="{{ url_for('learn_bp.learn_skill') }}">🎓 Learn Skills</a>
             <a href="{{ url_for('health_bp.health_tracker') }}">❤ Health Tracker</a>
             <a href="{{ url_for('ai_bp.ai_chat') }}">🤖 AI Assistant</a>
+            <a href="{{ url_for('todo_bp.todo_list') }}">📋To-Do list</a>
         </nav>
         </div>
     </div>
@@ -23,10 +24,11 @@
         {% for cat in categories %}
         
         <div class="category-card">
-            <a href="{{ url_for('learn_bp.category_courses', cat_id=cat.id) }}">
-                <h5>{{ cat.name }}</h5>
-                <p>{{ cat.description }}</p>
-            </a>
+            <h5>{{ cat.name }}</h5>
+            <p>{{ cat.description }}</p>
+            <div class="buttons">
+                <a href="{{ url_for('learn_bp.category_courses', cat_id=cat.id) }}" class="text-white">View</a>
+            </div>
         </div>
         {% endfor %}
     </div>
