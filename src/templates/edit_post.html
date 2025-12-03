@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+
+    <h3>Edit post</h3>
+    <form method="POST">
+        <textarea name="content" rows="5" class="form-control">{{ post.content }}</textarea>
+        <br>
+        <div class="buttons " >
+            <button type="submit" class="btn btn-primary">Update post</button>
+            <a href="{{ url_for('community_bp.community_page') }}" style="background:#888;">Back</a>
+        </div>            
+    </form>
+{% endblock %}

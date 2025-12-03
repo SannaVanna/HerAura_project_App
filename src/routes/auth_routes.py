@@ -39,7 +39,7 @@ def register():
 
         if User.query.filter(User.email == email).first():
             flash("Email already registered.", "warning")
-            return redirect(url_for('mentor_bp.register'))
+            return redirect(url_for('auth_bp.register'))
 
         user = User(
             first_name=first_name,
@@ -77,8 +77,23 @@ def login():
             return redirect(url_for("dashboard_bp.dashboard"))
         else:
             flash("Invalid email or password", "danger")
-            return redirect(url_for('mentor_bp.login'))
+            return redirect(url_for('auth_bp.login'))
     return render_template('login.html')
 
 
-#=========
+# ---------- Small utility endpoints ----------
+@auth_bp.route('/api/profile')
+def api_profile():
+    u = current_user()
+    if not u:
+        return jsonify({'error': 'not authenticated'}), 401
+    data = {'id': u.id, 'username': u.username, 'email': u.email}
+    return jsonify(data)
+
+
+@auth_bp.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('you have been looged out.', 'info')
+    return redirect(url_for('mentor_bp.index'))

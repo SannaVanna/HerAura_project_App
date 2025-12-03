@@ -13,7 +13,7 @@
 </head>
 <body>
   <header>
-    <div class="logo"><a href="{{ url_for('mentor_bp.index')}}">
+    <div class="logo"><a href="{{ url_for('auth_bp.index')}}">
       <img src="{{ url_for('static', filename='images/her_aura.png')}}"/>
       </a>
     </div>
@@ -42,19 +42,19 @@
         <a class="nav-icon" href="{{ url_for('dashboard_bp.dashboard') }}">
           <img src="{{ url_for('static', filename='images/user.svg') }}"></icon>        
         </a>
-        <a class="nav-icon" href="{{ url_for('mentor_bp.logout') }}">
+        <a class="nav-icon" href="{{ url_for('auth_bp.logout') }}">
           <img src="{{ url_for('static', filename='images/log-out.svg') }}"></icon>
         </a>
-        <!--a class="nav-icon" href="{{ url_for('mentor_bp.logout') }}">
+        <!--a class="nav-icon" href="{{ url_for('auth_bp.logout') }}">
           <img src="https://i.pravatar.cc/40" alt="Profile" class="profile-pic" />
         </a-->
         <button id="themeToggle" class="toggle-btn">🌙</button>
     </div>
     {% else %}
     <div class="links">
-      <a class="btn" href="{{ url_for('mentor_bp.index') }}">Home</a>
-      <a class="btn" href="{{ url_for('mentor_bp.login') }}">Login</a>
-      <a class="btn" href="{{ url_for('mentor_bp.register') }}">Register</a>
+      <a class="btn" href="{{ url_for('auth_bp.index') }}">Home</a>
+      <a class="btn" href="{{ url_for('auth_bp.login') }}">Login</a>
+      <a class="btn" href="{{ url_for('auth_bp.register') }}">Register</a>
       <button id="themeToggle" class="toggle-btn">🌙</button>
     </div>
     {% endif %}

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, jsonify
+from flask import Blueprint, render_template, request, redirect, url_for, jsonify, flash
 from flask_login import login_required, current_user
 from src.models import User, CommunityPost, Comment, Like
 from src.db import db
@@ -11,6 +11,8 @@ community_bp = Blueprint('community_bp', __name__)
 def community_page():
     posts = CommunityPost.query.order_by(CommunityPost.created_at.desc()).all()
     users = User.query.all()
+    print(posts)
+    print(users)
     return render_template('community.html', posts=posts, user=current_user, users=users)
 
 # Create Post
@@ -20,8 +22,46 @@ def create_post():
     content = request.form.get('content')
     if content:
         post = CommunityPost(content=content, user_id=current_user.id)
+        print(post)
         db.session.add(post)
         db.session.commit()
+    return redirect(url_for('community_bp.community_page'))
+
+# Edit Post (GET + POST)
+@community_bp.route('/community/post/<int:post_id>/edit', methods=['GET', 'POST'])
+@login_required
+def edit_post(post_id):
+    post = CommunityPost.query.get_or_404(post_id)
+
+    # Security: Only the owner can edit
+    if post.user_id != current_user.id:
+        return "Unauthorized", 403
+
+    if request.method == 'POST':
+        new_content = request.form.get('content')
+        
+        if new_content:
+            post.content = new_content
+            db.session.commit()
+            print(new_content)
+            return redirect(url_for('community_bp.community_page'))
+
+    return render_template('edit_post.html', post=post, user=current_user)
+    
+
+# Delete Post
+@community_bp.route('/community/post/<int:post_id>/delete', methods=['POST'])
+@login_required
+def delete_post(post_id):
+    post = CommunityPost.query.get_or_404(post_id)
+
+    # Security: Only the owner can delete
+    if post.user_id != current_user.id:
+        return "Unauthorized", 403
+
+    db.session.delete(post)
+    db.session.commit()
+    flash("Post deleted successfully!", "success")
     return redirect(url_for('community_bp.community_page'))
 
 # Comment
@@ -32,6 +72,7 @@ def add_comment(post_id):
     if content:
         comment = Comment(content=content, user_id=current_user.id, post_id=post_id)
         db.session.add(comment)
+        print(User.comments)        
         db.session.commit()
     return redirect(url_for('community_bp.community_page'))
 

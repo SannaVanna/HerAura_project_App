@@ -1,22 +1,23 @@
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --card-bg: #f5f6fa;
+  --header-bg: #ffffff;
+  --accent: #FF089D;
+  --border: #ddd;
+}
 
-
-/*body.dark {
+body.dark {
   --bg: #18191a;
   --text: #e4e6eb;
   --card-bg: #242526;
   --header-bg: #242526;
   --border: #585757;
-}*/
+}
 
 body {
-  /*background-color: var(--bg);*/
-  background-image: url('images/w.jpg');
-  background-size:cover ;
-  background-repeat:no-repeat ;
-  background-position: center;
-  background-attachment: fixed;
-  line-height: 1.6;
-  color: black;
+  background-color: var(--bg);
+  color: var(--text);
   font-family: "Poppins", sans-serif;
   margin: 0;
 }
@@ -28,9 +29,8 @@ header {
     align-items: center;
     padding: 30px 50px;
     flex-wrap: wrap;
-    /*background:var(--header-bg);*/
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
+    background:var(--header-bg);
+    border-bottom: 1px solid var(--border);
     top:0;
     z-index:10;
 }
@@ -67,7 +67,7 @@ header {
 }
 
 .links a {
-    color: #fff;
+    color: var(--text);
     font-size: 16px;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -75,7 +75,7 @@ header {
 }
 
 .links a:hover {
-    color: #e80c75;
+    color: #e704aee3;
 }
 
 .logo img{
@@ -123,21 +123,21 @@ header {
 }*/
 
 .container2{
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
+    margin-top: 60px;
+    margin-bottom: 50px;
 }
 .container2 h3{
     text-align: center;
 }
 .custom-input{
     padding: 10px;
-    border: 1px solid gray;
+    border: 1px solid var(--border);
     border-radius: 10px;
 }
 
 .custom-input1{
     padding: 10px;
-    border: 1px solid share;
+    border: 1px solid var(--border);
     border-radius: 10px;
 }
 
@@ -145,24 +145,24 @@ header {
     margin-left: 30px;
 }
 .nav-btn1{
-    background-color:#e80c75;
+    background-color:var(--accent);
     color: #ffffff;
     font-size: 16px;
     text-decoration: none;
     padding: 8px 20px;
 }
 .nav-btn1:hover{
-    color: #e80c75;
-    border: 1px solid #e80c75;
+    color: var(--accent);
+    border: 1px solid  var(--accent);
     border-radius: 10px;
 }
 .nav-btn2{
-    color: #e80c75;
+    color: var(--accent);
 }
 .nav-btn2:hover{
     padding: 8px 20px;
-    color: #e80c75;
-    border: 1px solid #e704aee3;
+    color: var(--accent);
+    border: 1px solid  rgb(255, 126, 152);
     border-radius: 10px;
 }/*end register& login*/
 
@@ -170,9 +170,8 @@ header {
 /* Hero Section */
 .hero {
     display: flex;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.7);
-    padding-left: 55px;  
+    /*background-color: #9040d1;*/
+    padding: 55px;
     position: relative;
     justify-content:space-between;
     align-items: center;
@@ -198,7 +197,7 @@ header {
 }
 
 .hero-text p span {
-    color: #e80c75;
+    color:var(--accent);
     /*font-family: ;*/
     font-size: 25px;
 }
@@ -222,7 +221,7 @@ header {
 
 .btn-primary {
     padding: 12px 25px;
-    background-color: #e80c75;
+    background-color:var(--accent);
     color: #fff;
     font-weight: bold;
     text-decoration:none;
@@ -231,22 +230,21 @@ header {
 }
 
 .btn-primary:hover {
-    background-color:  rgba(0, 0, 0, 0.5);
+    background-color:var(--accent);
 }
 
 .btn-secondary {
-    color: #e80c75;
+    color: var(--accent);
     transition: color 0.3s ease;
     text-decoration:none;
 }
 
 .btn-secondary:hover {
-    color: #e7046ae3; ;
+    color: #9040d1;
 }
 
 /* About Section */
 .about {
-    background-color: #fff;
     display: flex;
     padding: 55px;
     position: relative;
@@ -290,8 +288,7 @@ header {
 }
 
 .about-authors {
-    background-color: #fff;
-    padding: 100px;
+    padding: 0px;
     text-align: center;
 }
 
@@ -321,8 +318,7 @@ header {
 
 /* Contact Section */   
 .contact{
-  background-color: #fff;
-  color: #585757;
+  background-color:var(--bg);
   /*background: rgba(0,0,0,0.5);*/
   display:flex;
   padding: 90px;
@@ -380,7 +376,9 @@ header {
 
 /* footer styles */
 .footer {
-  background-color: #e80c75;
+  background: var(--accent);
+  background-size: cover;
+  background-position:center;
   color: #f5f5f5;
   padding: 60px 30px;
 }
@@ -426,7 +424,7 @@ header {
 }
 
 .footer-column ul li {
-  color: #f5f5f5;
+  color: var(--text);
   font-size: 14px;
   margin-bottom: 8px;
   cursor: pointer;

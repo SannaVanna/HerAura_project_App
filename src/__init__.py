@@ -23,7 +23,7 @@ db.init_app(app)
 migrate = Migrate(app, db)
 
 login_manager.init_app(app)
-login_manager.login_view = 'mentor_bp.login'
+login_manager.login_view = 'auth_bp.login'
 
 
 def create_app():

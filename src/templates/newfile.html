@@ -54,8 +54,8 @@
               <button id="themeToggle" class="toggle-btn">🌙</button>
             {% else %}
               <a class="btn me-2 mb-3 nav-item1" href="{{ url_for('mentor_bp.index') }}">Home</a></li>
-              <a class="btn me-2 mb-3 nav-item2" href="{{ url_for('mentor_bp.login') }}">Login</a></li>
-              <a class="btn-primary text-white mb-3 nav-item2 " href="{{ url_for('mentor_bp.register') }}">Register</a></li>
+              <a class="btn me-2 mb-3 nav-item2" href="{{ url_for('auth_bp.login') }}">Login</a></li>
+              <a class="btn-primary text-white mb-3 nav-item2 " href="{{ url_for('auth_bp.register') }}">Register</a></li>
               <button id="themeToggle" class="toggle-btn">🌙</button>
             {% endif %}
           </ul>
