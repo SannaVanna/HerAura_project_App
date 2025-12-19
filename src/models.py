@@ -16,6 +16,7 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(200), nullable=False)
     profile_image = db.Column(db.String(300), default='default_profile.png')
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    #last_seen = db.Column(db.DateTime, default=datetime.utcnow)
 
     # Relationships
     posts = db.relationship('CommunityPost', backref='user', lazy=True)
@@ -90,6 +91,7 @@ class Mentor(db.Model):
     bio = db.Column(db.Text)
     contact_email = db.Column(db.String(150))
     contact_url = db.Column(db.String(250))
+    profile_image = db.Column(db.String(300), default='default_profile.png')
     on_app = db.Column(db.Boolean, default=False)
     date_added = db.Column(db.DateTime, default=datetime.utcnow)
 

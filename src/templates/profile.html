@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <div class="col-md-6 mx-auto">
+        <form action="{{ url_for('profile_bp.update_profile')}}" method="POST" class="p-4 border rounded" enctype="multipart/form-data">
+            <div class="register">
+                <div class="mb-3 custom-input-group">
+                    <label class="form-label custom-label1">First Name</label>
+                    <input type="text" name="first_name" class="form-control custom-input1" value="{{ current_user.first_name}}">
+                </div>
+
+                <div class="mb-3 custom-input-group">
+                    <label class="form-label custom-label1">Last Name</label>
+                    <input type="text" name="last_name" class="form-control custom-input1" value="{{ current_user.last_name}}">
+                </div>
+
+                <div class="mb-3 custom-input-group">
+                    <label class="form-label custom-label1">Email</label>
+                    <input type="email" name="email" class="form-control custom-input1" value="{{ current_user.email}}">
+                </div>
+
+                <div class="mb-3 custom-input-group">
+                    <label class="form-label custom-label1">Date of Birth</label>
+                    <input type="date" name="dob" class="form-control custom-input1" value="{{ current_user.dob}}">
+                </div>
+
+                <div class="mb-3 custom-input-group">
+                    <label class="form-label custom-label1">Profile picture</label>
+                    <input type="file" name="image" class="form-control custom-input1">
+                </div>
+
+                <button type="submit" style="color: white;">Update Profile</button>
+                <button>
+                    <a href="{{ url_for('dashboard_bp.dashboard') }}" style="background: #888;">Back</a>
+                </button>    
+            </div>    
+        </form>
+    </div>    
+{% endblock %}

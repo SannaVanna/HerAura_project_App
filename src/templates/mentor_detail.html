@@ -16,7 +16,7 @@
         <p><strong>Registered On:</strong> {{ mentor.date_added.strftime('%Y-%m-%d') }}</p>
 
         <div class="buttons">
-            <a href="mailto:{{ mentor.contact_email }}">Message Mentor</a>
+            <a href="mailto:{{ mentor.contact_email }} ">Message Mentor</a>
             <a href="{{ url_for('mentor_bp.mentors_page') }}" style="background:#888;">Back</a>
         </div>
     </div>

@@ -96,4 +96,4 @@ def api_profile():
 def logout():
     logout_user()
     flash('you have been looged out.', 'info')
-    return redirect(url_for('mentor_bp.index'))
+    return redirect(url_for('auth_bp.index'))

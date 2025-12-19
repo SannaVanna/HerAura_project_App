@@ -13,10 +13,6 @@
                 <a href="{{ url_for('auth_bp.login') }}" class="btn-secondary">login</a>
             </div>
         </div>
-
-        <div class="hero-image">
-            <img src="{{ url_for('static', filename='images/girl11.png')}}"/>
-        </div>
     </section>
 
     <section class="about">
@@ -39,7 +35,7 @@
             <img src="{{ url_for('static', filename='images/Nora.jpg')}}"/>
             <h3>Nora Godwin Teneke</h3>
             <p>Nora Godwin is a technology enthusiast with a background in Computer Science (BSc) and Information Technology (MSc). She is passionate about using digital tools to enhance learning, promote sustainability, and empower young people in her community.</p>
-            <p>Nora's interests lie at the intersection of education, technology, and social impact — particularly in creating AI-powered and data-driven solutions aligned with the UN Sustainable Development Goals.</p>
+            <p>Nora's interests lie at the intersection of education, technology, and social impact — particularly in creating AI-powered and data-driven solutions aligned with the UN Sustainable Development Goals.</p>
           </div>
 
           <div class="author">
@@ -49,7 +45,34 @@
             <p>She is passionate about using her skills to create meaningful solutions, empower others (females) through tech education, and contribute to sustainable development across Africa.</p>
           </div>
         </div>
+    </div>
+
+    <section id="contact" class="contact">
+      <div class="contact-text">
+        <h4>Let's Connect </h4>
+        <p>Have you ever felt unheard, unseen, or unsure where you truly belong?
+          HerAura is a safe, supportive space for women and girls to learn, heal, grow, and rediscover their power. Whether you’re seeking guidance, community, or collaboration, you don’t have to walk alone we’re here with you.</p>
+        <a href="#" class="btn me-2 nav-btn1">Watch Latest Message</a>
       </div>
+      <div class="form-container">
+        <h2>Contact Us</h2>
+        <form method="POST">
+          <label>Name:</label><br>
+          <input type="text" name="name" placeholder="Enter full name"><br><br>
+
+          <label>Email:</label><br>
+          <input type="email" name="email" placeholder="example@email.com"><br><br>
+
+          <label>Address:</label><br>
+          <input type="text" name="address" placeholder="Enter your address"><br><br>
+
+          <label>Message:</label><br>
+          <textarea name="message" rows="5" required></textarea><br><br>
+          <button class="btn me-2 nav-btn1" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+
       
   
   <footer class="footer">

@@ -57,10 +57,11 @@ def delete_post(post_id):
 
     # Security: Only the owner can delete
     if post.user_id != current_user.id:
-        return "Unauthorized", 403
+        return jsonify({"error": f"Post with ID {post_id} Not Found"}), 404
 
     db.session.delete(post)
     db.session.commit()
+    print(f"Deleting post {post} by {post.user_id}")
     flash("Post deleted successfully!", "success")
     return redirect(url_for('community_bp.community_page'))
 
