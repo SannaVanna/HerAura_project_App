@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, request, redirect, url_for, render_template, current_app
+from flask import Blueprint, request, redirect, url_for, render_template
 from flask_login import login_required, current_user
 from src.db import db
 
@@ -11,7 +11,6 @@ os.makedirs("static/profile_images", exist_ok=True)
 @login_required
 def profile_page():
     return render_template('profile.html', user=current_user)
-
 
 @profile_bp.route('/profile/update', methods=['POST'])
 @login_required
@@ -37,22 +36,13 @@ def update_profile():
 
 
     #Handle upload image
+    
     image = request.files.get('image')
-    if image and image.filename:
-        #make sure the folder exists
-        upload_folder = os.path.join(current_app.root_path, 'static', 'profile_images')
-        os.makedirs(upload_folder, exist_ok=True)
-
-        #build the filename with proper extention
-        ext = os.path.splitext(image.filename)[1]
-        file_name = f"user_{current_user.id}{ext}"
-        save_path = os.path.join(upload_folder, file_name)
-
-        #save the file
-        image.save(save_path)
-        # save filename im DB
-        current_user.profile_image = file_name
-        print(file_name)
+    if image:
+        filename = f"user_{current_user.id}.jpg"
+        filepath = os.path.join('static/profile_images', filename)
+        image.save(filepath)
+        current_user.profile_image = filename
     else:
         print("No image uploaded.")    
 

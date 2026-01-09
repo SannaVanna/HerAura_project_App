@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify, flash
 from flask_login import login_required, current_user
-from src.models import User, CommunityPost, Comment, Like
+from src.models import User, CommunityPost, Comment, Like, CommentReaction
 from src.db import db
 
 community_bp = Blueprint('community_bp', __name__)
@@ -89,3 +89,23 @@ def like_post(post_id):
         db.session.add(like)
     db.session.commit()
     return jsonify({'success': True})
+
+@community_bp.route('/community/comment/react/<int:comment_id>', methods=['POST'])
+@login_required
+def comment_react(comment_id):
+    comment = Comment.query.get_or_404(comment_id)
+
+    #check if user already reacted
+    existing_rection = CommentReaction.query.filter_by(user_id=current_user.id, comment_id=comment.id).first()
+
+    if existing_rection:
+        db.session.delete(existing_rection) # remove reaction if exists
+        db.session.commit()
+        #return jsonify({'successs': True, 'reacted': False})
+        return redirect(url_for('community_bp.community_page'))
+    
+    reaction = CommentReaction(user_id=current_user.id, comment_id=comment.id)
+    db.session.add(reaction)
+    db.session.commit()
+    #return jsonify({'successs': True, 'reacted': False})
+    return redirect(url_for('community_bp.community_page'))

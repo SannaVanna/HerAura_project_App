@@ -23,7 +23,7 @@
   <!-- MAIN CONTENT -->
   <div class="main-content">
     <div class="welcome-section d-flex align-items-center gap-3 mb-3">
-      <img src="{{ url_for('static', filename='profile_images/' + current_user.profile_image) }}" alt="Profile" class="">
+      <img src="{{ url_for('static', filename='profile_images/' + current_user.profile_image) }}" alt="Profile image" class="profile-image">
       <h1>Welcome, {{current_user.first_name}} {{ current_user.last_name}} 🌸</h1>
     </div>
 

@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from .db import db
@@ -16,7 +16,12 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(200), nullable=False)
     profile_image = db.Column(db.String(300), default='default_profile.png')
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
-    #last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+    last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+
+    @property
+    def is_online(self):
+        #consider a user online if last_seen < 5mins ago
+        return datetime.utcnow() - self.last_seen < timedelta(minutes=5)
 
     # Relationships
     posts = db.relationship('CommunityPost', backref='user', lazy=True)
@@ -57,6 +62,7 @@ class CommunityPost(db.Model):
     content = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    author = db.relationship('User') # link to the user who made the post
 
     # Relationships
     comments = db.relationship('Comment', backref='post', cascade="all, delete-orphan", lazy=True)
@@ -70,6 +76,14 @@ class Comment(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey('community_posts.id'), nullable=False)
+
+
+class CommentReaction(db.Model):
+    #__tablename__ =
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    comment_id = db.Column(db.Integer, db.ForeignKey('comments.id'), nullable=False)
+    type = db.Column(db.String(20), default='like') # optional if you want multiple reactions
 
 
 class Like(db.Model):
