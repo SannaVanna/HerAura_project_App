@@ -86,11 +86,18 @@
     <div class="top">
       <ul class="online-users">
         <h4>Online</h4>
-        {% for u in users %}
+        {% for user in online_users %}
         <li class="py-1">
           <img src="{{ url_for('static', filename='profile_images/' + current_user.profile_image) }}" alt="Profile image" class="profile-image">
           <span>{{ u.first_name }} {{ u.last_name }}</span>
           <span class="status-dot"></span>
+          <span class="status-text">
+            {% if user.last_seen >= (datetime.utcnow() - timedelta(minutes=5)) %}
+              Active Now
+            {% else %}  
+              Last Seen {{ (datetime.utcnow() - user.last_seen).seconds // 60 }} minutes ago
+            {% endif %}  
+          </span>  
         </li>  
         {% endfor %}
       </ul>

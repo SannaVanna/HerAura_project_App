@@ -30,18 +30,17 @@ UPLOAD_FOLDER = os.path.join(BASE_DIR, 'static', 'profile_images')
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-@app.before_request
-def update_last_seen():
-    if current_user.is_authenticated:
-        current_user.last_seen = datetime.utcnow()
-        db.session.commit()
-
-
 db.init_app(app)
 migrate = Migrate(app, db)
 
 login_manager.init_app(app)
 login_manager.login_view = 'auth_bp.login'
+
+@app.before_request
+def update_last_seen():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow()
+        db.session.commit()
 
 
 def create_app():
