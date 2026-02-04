@@ -4,8 +4,8 @@ from models import User
 from datetime import datetime, timedelta
 
 
-@app.route('/community')
-def community_board():
+@app.route('/online-users')
+def online_users():
     # Users are considered online if they were active the 5mins 
     five_minutes_ago = datetime.utcnow() - timedelta(minutes=5)
     users = User.query.all()

@@ -27,4 +27,5 @@ def time_ago(created_at):
 def is_user_online(user):
     if not user.last_seen:
         return False
-    return datetime.utcnow() - user.last_seen < timedelta(minutes=5)
+    now = datetime.utcnow()
+    return datetime.utcnow() - user.last_seen <= timedelta(minutes=5)

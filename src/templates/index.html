@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
    <section class="hero">
-        <div class="hero-text">
-            <p>Welcome to<span> HerAura</span>.</p>
-            <h1>A DIgital safe space for girls.</h1>
-            <h1>Your daily guide to feminine wellness.</h1>
-            <div>
-              <p>Stay <span class="typed" data-typed-items="Clean., healthy.., safe..., Beautiful...., Confident...."></span></p>
-            </div>
-            <div class="buttons">
-                <a href="{{ url_for('auth_bp.register') }}" class="btn-primary">Register</a>
-                <a href="{{ url_for('auth_bp.login') }}" class="btn-secondary">login</a>
-            </div>
+      <div class="hero-text">
+        <p>Welcome to<span> HerAura</span>.</p>
+        <h1>A DIgital safe space for girls.</h1>
+        <h1>Your daily guide to feminine wellness.</h1>
+        <div>
+          <p>Stay <span class="typed" data-typed-items="Clean., healthy.., safe..., Beautiful...., Confident...."></span></p>
         </div>
+        <div class="buttons">
+          <a href="{{ url_for('auth_bp.register') }}" class="btn-primary">Register</a>
+          <a href="{{ url_for('auth_bp.login') }}" class="btn-secondary">login</a>
+        </div>
+      </div>
     </section>
 
     <section class="about">

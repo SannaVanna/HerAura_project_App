@@ -32,13 +32,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:0px 0px;
+    padding: 30px 50px;
     flex-wrap: wrap;
-    background:var(--bg);
-    /*background: hsla(0, 0%, 0%, 0.7);*/
-    color: var(--tex);
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
     top:0;
     z-index:10;
+    
 }
 
 #menu-toggle {
@@ -53,9 +54,9 @@ header {
  }
 
 .logo {
-    /*margin-left:20px;*/
-    font-weight: 900;
-    font-size: 24px;
+    margin-right:700px;
+    width: 100px;
+    height: 50px;
 }
 
 .logo-primary {
@@ -67,22 +68,41 @@ header {
     font-weight: 700;
 }
 
-.links {
+.links1 {
     display: flex;
-    gap: 50px;
+    gap: 30px;
 }
 
-.links a {
+.links1 a {
+    font-size: 18px;
+    margin-top: 30px;
     color: var(--text);
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    text-decoration:none;
+    gap: 10px;
+}
+
+.links1 a:hover {
+    color:var(--accent);
+}
+
+
+.links2 {
+    display: flex;
+    gap: px;
+    margin-top: 30px;
+}
+
+.links2 img {
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
     text-decoration:none;
 }
 
-.links a:hover {
+.links2 a:hover {
     color:var(--accent);
 }
+
 
 .logo img{
     width:130px;
@@ -202,7 +222,7 @@ header {
 .hero-text {
     max-width: 600px;
     flex: 1;
-    margin-left: 155px;
+    margin-left: 258px;
 }
 
 .hero-text p {
@@ -273,11 +293,12 @@ header {
     flex: 1;
     max-width: 60%;
     margin-left: 100px;
+    margin-top: 60px;
 }
 
 .about img {
     max-width: 600px;
-    height: 450px;
+    height: 400px;
     border-radius: 10px;
     position:relative;
     margin-top: 55px;
@@ -553,74 +574,69 @@ header {
 
   /* ================= HEADER & NAV ================= */
   header {
-    padding: 15px 20px;
+    padding: 0px 0px;
     position: relative;
   }
 
   .logo img {
     width: 100px;
-    margin-right: 0;
+    margin-left: 20px;
+    margin-top: 50px;
   }
-
-  /* Hide desktop nav */
-  /*.links {
-    display: none;
-    flex-direction: column;
-    background: var(--bg);
-    width: 100%;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    padding: 25px 0;
-    border-top: 1px solid var(--border);
-    z-index: 20;
-  }
-
-  .links a {
-    padding: 12px 20px;
-    font-size: 18px;
-    text-align: center;
-  }*/
-
+  
   /* Show hamburger */
   .menu-icon {
-        display: block;
-        position: relative;
-        top: -100px;
-        left: 50px;
-        margin-left: auto;
-        cursor: pointer;
-        font-size: 32px;
-        padding: 10px;
-    }
-    .links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: transparent;
-        background: rgb(0, 0, 0, 0.5);
-        position: relative;
-        top: 0;
-        left: 0;
-        padding: 0;
-        box-shadow: none;
-        transition: max-height 0.3s ease;
-        overflow: hidden;
-        max-height: 50px;
-    }
-    #menu-toggle:checked + .menu-icon + .links {
-        display: flex;
-        max-height: 500px; /* enough height to show menu */
-    }
-    .links a {
-        padding: 10px 0;
-        font-size: 18px;
-        color: white;
-    }
-
-  /* Hide search box on mobile */
-  .search-box {
+    display: block;
+    position: relative;
+    top: 10px;
+    left: -5px;
+    margin-left: auto;
+    cursor: pointer;
+    font-size: 32px;
+  }
+  .links1 {
     display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0, 0, 0, 0);
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0;
+    box-shadow: none;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+  }
+  #menu-toggle:checked + .menu-icon + .links1 {
+    display: flex;
+    max-height: 500px; /* enough height to show menu */
+  }
+
+  .links1 a {
+    padding: 10px 0;
+    font-size: 18px;
+    color:black;
+  }
+
+  .search-box {
+    display: block;
+    width: 230px;
+    margin-left: 0px;
+  }
+
+  .links1 a{
+    margin-right: 0px;
+  }
+
+  .links2{
+    position: relative;
+    left: -0%;
+    top: 0%;
+  }
+
+  .links2 img{
+    position: relative;
+    left: -70%;
   }
 
   /* ================= HERO ================= */
@@ -670,7 +686,7 @@ header {
 
   .about img {
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: 30px 0 0;
   }
 
@@ -726,7 +742,8 @@ header {
   }
 
   .subscribe-box {
-    margin: auto;
+    margin: none;
+    width: 400px;
   }
 
   /* ================= BUBBLES ================= */

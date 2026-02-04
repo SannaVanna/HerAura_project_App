@@ -13,45 +13,53 @@
 </head>
 <body>
   <header>
-    <div class="logo"><a href="{{ url_for('auth_bp.index')}}">
-      <img src="{{ url_for('static', filename='images/her_aura.png')}}"/>
-      </a>
-    </div>
-
     {% if current_user.is_authenticated %}
+    <div class="welcome-section2">
+        <img src="{{ url_for('static', filename='profile_images/' + current_user.profile_image) }}" alt="Profile image" class="profile-image">
+    </div>
+    <div class="links2">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" placeholder="Search....."/>
+      </div>
+      <a class="nav-icon" href="{{ url_for('dashboard_bp.dashboard') }}">
+        <img src="{{ url_for('static', filename='images/home.svg') }}"></icon>
+      </a>
+    </div>  
     <input type="checkbox" id="menu-toggle" />
     <label for="menu-toggle" class="menu-icon">&#9776;</label>
-    <div class="links">
-        <div class="search-box">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" placeholder="Search....."/>
-        </div>
-        <a class="nav-icon" href="{{ url_for('dashboard_bp.dashboard') }}">
-          <img src="{{ url_for('static', filename='images/home.svg') }}"></icon>
-        </a>
-        <a class="nav-icon" href="{{ url_for('dashboard_bp.dashboard') }}">
-          <img src="{{ url_for('static', filename='images/bell.svg') }}"></icon>
-        </a>
-        <a class="nav-icon" href="{{ url_for('dashboard_bp.dashboard') }}">
-          <img src="{{ url_for('static', filename='images/settings.svg') }}"></icon>
-        </a>
-        <a class="nav-icon" href="{{ url_for('profile_bp.profile_page') }}">
-          <img src="{{ url_for('static', filename='images/user.svg') }}"></icon>        
-        </a>
-        <a class="nav-icon" href="{{ url_for('auth_bp.logout') }}">
-          <img src="{{ url_for('static', filename='images/log-out.svg') }}"></icon>
-        </a>
-        <!--a class="nav-icon" href="{{ url_for('auth_bp.logout') }}">
-          <img src="https://i.pravatar.cc/40" alt="Profile" class="profile-pic" />
-        </a-->
-        <button id="themeToggle" class="toggle-btn">🌙</button>
+
+    <div class="links1">
+      <a class="nav-icon" href="{{ url_for('dashboard_bp.dashboard') }}">
+        <img src="{{ url_for('static', filename='images/bell.svg') }}"></icon>
+      </a>
+      <a class="nav-icon" href="{{ url_for('dashboard_bp.dashboard') }}">
+        <img src="{{ url_for('static', filename='images/settings.svg') }}"></icon>
+      </a>
+      <a class="nav-icon" href="{{ url_for('profile_bp.profile_page') }}">
+        <img src="{{ url_for('static', filename='images/user.svg') }}"></icon>        
+      </a>
+      <a class="nav-icon" href="{{ url_for('auth_bp.logout') }}">
+        <img src="{{ url_for('static', filename='images/log-out.svg') }}"></icon>
+      </a>
+      <button id="themeToggle" class="toggle-btn">🌙</button>
+      <!--a class="nav-icon" href="{{ url_for('auth_bp.logout') }}">
+        <img src="https://i.pravatar.cc/40" alt="Profile" class="profile-pic" />
+      </a-->
     </div>
     {% else %}
-    <div class="links">
+    <div class="logo">
+        <a class="nav-icon" href="{{ url_for('dashboard_bp.dashboard') }}">
+          <img src="{{ url_for('static', filename='images/her_aura.png') }}"></icon>
+        </a>
+    </div> 
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <div class="links1"> 
       <a class="btn" href="{{ url_for('auth_bp.index') }}">Home</a>
       <a class="btn" href="{{ url_for('auth_bp.login') }}">Login</a>
       <a class="btn" href="{{ url_for('auth_bp.register') }}">Register</a>

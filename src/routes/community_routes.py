@@ -13,7 +13,7 @@ def community_page():
     users = User.query.all()
     print(posts)
     print(users)
-    return render_template('community.html', posts=posts, user=current_user, users=users)
+    return render_template('dashboard.html', posts=posts, user=current_user, users=users)
 
 # Create Post
 @community_bp.route('/community/post', methods=['POST'])
@@ -88,7 +88,8 @@ def like_post(post_id):
         like = Like(user_id=current_user.id, post_id=post_id)
         db.session.add(like)
     db.session.commit()
-    return jsonify({'success': True})
+    #return jsonify({'success': True})
+    return redirect(url_for('community_bp.community_page'))
 
 @community_bp.route('/community/comment/react/<int:comment_id>', methods=['POST'])
 @login_required

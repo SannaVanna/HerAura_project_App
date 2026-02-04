@@ -36,6 +36,7 @@ migrate = Migrate(app, db)
 login_manager.init_app(app)
 login_manager.login_view = 'auth_bp.login'
 
+
 @app.before_request
 def update_last_seen():
     if current_user.is_authenticated:

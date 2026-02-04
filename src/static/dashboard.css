@@ -36,6 +36,7 @@ header {
     z-index:10;
 }
 
+
 /* DASHBOARD GRID */
 .dashboard-container {
   display: grid;
@@ -84,13 +85,21 @@ header {
   margin-bottom: 40px;
 }
 
-.welcome-section img{
+.welcome-section2 {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.welcome-section2 img{
+  position: relative;
+  top: 8%;
+  left: 70%;
   width:90px; 
   border-radius: 50% ; 
   height: 90px;
 }
 
-.welcome-section2 img{
+.welcome-section img{
   width:50px; 
   border-radius: 50% ; 
   height: 50px;
@@ -290,7 +299,7 @@ p {
 /* Layout */
 .main-container {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 3fr;
   gap: 20px;
   padding: 20px;
 }
@@ -313,7 +322,7 @@ h2, h3 {
 section {
   color: var(--text);
   background:var(--bg);
-  width: 750px;
+  width: 900px;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(110, 104, 104, 0.186);
   padding: 2rem;
@@ -693,6 +702,15 @@ h1 {
   .profile-card {
     padding: 15px;
     margin: 10px 0;
+  }
+
+  .welcome-section2 img{
+    position: relative;
+    margin-top: 30px;
+    left: -80%;
+    width:50px; 
+    border-radius: 50% ; 
+    height: 50px;
   }
 
   .buttons a {
