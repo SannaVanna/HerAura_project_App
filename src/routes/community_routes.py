@@ -13,7 +13,7 @@ def community_page():
     users = User.query.all()
     print(posts)
     print(users)
-    return render_template('dashboard.html', posts=posts, user=current_user, users=users)
+    return render_template('community.html', posts=posts, user=current_user, users=users)
 
 # Create Post
 @community_bp.route('/community/post', methods=['POST'])
