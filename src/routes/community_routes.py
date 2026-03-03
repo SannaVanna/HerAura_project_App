@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify, flash
 from flask_login import login_required, current_user
+from requests import post
 from src.models import User, CommunityPost, Comment, Like, CommentReaction
 from src.db import db
 
@@ -76,6 +77,28 @@ def add_comment(post_id):
         print(User.comments)        
         db.session.commit()
     return redirect(url_for('community_bp.community_page'))
+
+
+# Edit Comment (GET + POST)
+@community_bp.route('/community/comment/<int:comment_id>/edit', methods=['GET', 'POST'])
+@login_required
+def edit_comment(comment_id):
+    comment = Comment.query.get_or_404(comment_id)
+
+    # Security: Only the owner can edit
+    if comment.user_id != current_user.id:
+        return "Unauthorized", 403
+
+    if request.method == 'POST':
+        new_content = request.form.get('content')
+        
+        if new_content:
+            comment.content = new_content
+            db.session.commit()
+            print(new_content)
+            return redirect(url_for('community_bp.community_page'))
+
+    return render_template('edit_comment.html', comment=comment, user=current_user)
 
 # Like
 @community_bp.route('/community/like/<int:post_id>', methods=['POST'])

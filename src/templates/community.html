@@ -58,18 +58,23 @@
       <!-- Comments -->
       <div class="mt-3 pl-4 comment-l-2">
         {% for comment in post.comments %}    
-        <div class="welcome-section d-flex align-items-center gap-3 mb-3">
-          <img src="{{ url_for('static', filename='profile_images/' + comment.user.profile_image) }}" alt="Profile image" class="profile-image">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="welcome-section d-flex align-items-center gap-3 mb-3">
+            <img src="{{ url_for('static', filename='profile_images/' + comment.user.profile_image) }}" alt="Profile image" class="profile-image">
+          </div>
           <p class=" mb-1"><strong>{{ comment.user.first_name }}</strong>: {{ comment.content }}</p>
           <span class="time ml-100">{{ time_ago(comment.created_at) }}</span>    
+        </div>  
+        {% if current_user.id == comment.user.id%}
+        <div>
+          <a href="{{ url_for('community_bp.edit_comment', comment_id=comment.id) }}" class="btn btn-sm btn-warning">Edit</a>
         </div>
-      
+        {%endif%}
+
         <!--form action="{{ url_for('community_bp.comment_react', comment_id=comment.id) }}" method="POST" class="inline-block">
           <button class="text-pink-60 font-semibold ml-2">❤ {{ post.likes | length }}</button>
         </form-->
-        
         {% endfor %}
-
 
         <!-- Add Comment -->
         <form action="{{ url_for('community_bp.add_comment', post_id=post.id) }}" method="POST">

@@ -22,7 +22,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   line-height: 1.6;
-  color: black;
+  color: var(--text);
   font-family: "Poppins", sans-serif;
   margin: 0;
 }
@@ -76,6 +76,7 @@ header {
 .links1 a {
     font-size: 18px;
     margin-top: 30px;
+    margin-left: 0px;
     color: var(--text);
     text-decoration:none;
     gap: 10px;
@@ -89,6 +90,7 @@ header {
 .links2 {
     display: flex;
     gap: px;
+    color: var(--text);
     margin-top: 30px;
 }
 
@@ -615,7 +617,7 @@ header {
   .links1 a {
     padding: 10px 0;
     font-size: 18px;
-    color:black;
+    color:var(--text);
   }
 
   .search-box {
