@@ -37,7 +37,7 @@ header {
     background-color: var(--bg);
     border-bottom: 1px solid var(--border);
     color: var(--text);
-    top:0;
+    position: relative;
     z-index:10;
     
 }
@@ -54,7 +54,7 @@ header {
  }
 
 .logo {
-    margin-right:700px;
+    margin-right: 50px;
     width: 100px;
     height: 50px;
 }
@@ -89,7 +89,7 @@ header {
 
 .links2 {
     display: flex;
-    gap: px;
+    gap: 10px;
     color: var(--text);
     margin-top: 30px;
 }
@@ -141,7 +141,7 @@ header {
 
 .search-box input:focus {
   border-color:var(--accent); /* purple focus border */
-  box-shadow: white;
+  box-shadow: 0 0 5px var(--accent);
 } /*end custom-header*/
 
 
@@ -179,7 +179,7 @@ header {
 
 .custom-input1{
     padding: 10px;
-    border: 1px solid share;
+    border: 1px solid gray;
     border-radius: 10px;
 }
 
@@ -224,7 +224,7 @@ header {
 .hero-text {
     max-width: 600px;
     flex: 1;
-    margin-left: 258px;
+    margin-left: 0;
 }
 
 .hero-text p {
@@ -246,11 +246,12 @@ header {
 }
 
 .buttons {
-  display: block;
+  display: flex;
+  justify-content: center;
   align-items: center;
   margin-top: 40px;
   font-size: 16px;
-  gap: 300px;
+  gap: 20px;
   text-decoration:none;
   flex-wrap: wrap;
 }
@@ -316,7 +317,7 @@ header {
 .about-text p span {
     color:var(--accent);
     font-family: Vivaldi;
-    font-size: 0px;
+    font-size: 16px;
 }
 
 .about-text h1 {
@@ -744,8 +745,8 @@ header {
   }
 
   .subscribe-box {
-    margin: none;
-    width: 400px;
+    margin: 0;
+    width: 100%;
   }
 
   /* ================= BUBBLES ================= */
