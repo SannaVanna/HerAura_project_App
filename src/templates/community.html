@@ -68,6 +68,9 @@
         {% if current_user.id == comment.user.id%}
         <div>
           <a href="{{ url_for('community_bp.edit_comment', comment_id=comment.id) }}" class="btn btn-sm btn-warning">Edit</a>
+          <form action="{{ url_for('community_bp.delete_comment', comment_id=comment.id)}}" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+          </form>
         </div>
         {%endif%}
 

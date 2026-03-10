@@ -16,6 +16,7 @@ def community_page():
     print(users)
     return render_template('community.html', posts=posts, user=current_user, users=users)
 
+
 # Create Post
 @community_bp.route('/community/post', methods=['POST'])
 @login_required
@@ -27,6 +28,7 @@ def create_post():
         db.session.add(post)
         db.session.commit()
     return redirect(url_for('community_bp.community_page'))
+
 
 # Edit Post (GET + POST)
 @community_bp.route('/community/post/<int:post_id>/edit', methods=['GET', 'POST'])
@@ -66,6 +68,7 @@ def delete_post(post_id):
     flash("Post deleted successfully!", "success")
     return redirect(url_for('community_bp.community_page'))
 
+
 # Comment
 @community_bp.route('/community/comment/<int:post_id>', methods=['POST'])
 @login_required
@@ -99,6 +102,24 @@ def edit_comment(comment_id):
             return redirect(url_for('community_bp.community_page'))
 
     return render_template('edit_comment.html', comment=comment, user=current_user)
+
+
+# Delete Post
+@community_bp.route('/community/comment/<int:comment_id>/delete', methods=['POST'])
+@login_required
+def delete_comment(comment_id):
+    comment = Comment.query.get_or_404(comment_id)
+
+    # Security: Only the owner can delete
+    if comment.user_id != current_user.id:
+        return jsonify({"error": f"Comment with ID {comment_id} Not Found"}), 404
+
+    db.session.delete(comment)
+    db.session.commit()
+    print(f"Deleting comment {comment} by {comment.user_id}")
+    flash("Post deleted successfully!", "success")
+    return redirect(url_for('community_bp.community_page'))
+
 
 # Like
 @community_bp.route('/community/like/<int:post_id>', methods=['POST'])
