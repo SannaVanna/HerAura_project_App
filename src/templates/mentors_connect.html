@@ -19,29 +19,77 @@
     <div class="container">
         <h2>Mentor Connect</h2>
         {% if mentors %}
-            {% for mentor in mentors %}
-            <div class="mentor-card">
-                <!--img src="{{ url_for('static', filename='images/me.jpg') }}" alt="Profile" class="profile-center"-->
-                <h3>{{ mentor.name }}</h3>
-                <p><strong>Title:</strong> {{ mentor.title }}</p>
-                <p><strong>Field:</strong> {{ mentor.field }}</p>
-                <!--p><strong>Bio:</strong> {{ mentor.bio }}</p>
-                <p><strong>Email:</strong> {{ mentor.contact_email }}</p-->
-                {% if mentor.contact_url %}
-                <p><strong>Website:</strong> 
-                    <a href="{{ mentor.contact_url }}" target="_blank">{{ mentor.contact_url }}</a>
-                </p>
+        {% for mentor in mentors %}
+        <div class="mentor-card">
+
+            <div class="mentor-header">
+
+                <img src="{{ url_for('static',
+        filename='mentor_images/' ~ mentor.profile_image) }}" alt="Mentor" class="mentor-image">
+                <!--img src="/static/mentor_images/mentor1.png"/-->
+        
+                <div class="mentor-info">
+                    <h3>{{ mentor.name }}</h3>
+
+                    <span class="mentor-title">
+                        {{ mentor.title }}
+                    </span>
+
+                    <span class="mentor-field">
+                        {{ mentor.field }}
+                    </span>
+                </div>
+
+            </div>
+
+            <p class="mentor-bio">
+                {{ mentor.bio[:120] }}...
+            </p>
+
+            {% if mentor.on_app %}
+            <span class="mentor-status available">
+                🟢 Available on HerAura
+            </span>
+            {% else %}
+            <span class="mentor-status external">
+                🌐 External Mentor
+            </span>
+            {% endif %}
+
+            <div class="mentor-buttons">
+
+                <a href="{{ url_for('mentor_bp.mentor_detail',
+        mentor_id=mentor.id) }}" class="view-btn">
+
+                    View Profile
+
+                </a>
+
+                {% if mentor.on_app %}
+
+                <a href="mailto:{{ mentor.contact_email }}" class="connect-btn">
+
+                    Connect
+
+                </a>
+
+                {% elif mentor.contact_url %}
+
+                <a href="{{ mentor.contact_url }}" target="_blank" class="connect-btn">
+
+                    Visit Website
+
+                </a>
+
                 {% endif %}
 
-                <div class="buttons">
-                    <a href="{{ url_for('mentor_bp.mentor_detail', mentor_id=mentor.id) }}">View Profile</a>
-                    <a href="mailto:{{ mentor.contact_email }}">Message</a>
-                </div>
             </div>
-            {% endfor %}
+
+        </div>
+        {% endfor %}
         {% else %}
-            <p class="no-mentors">No mentors available yet.</p>
+        <p class="no-mentors">No mentors available yet.</p>
         {% endif %}
     </div>
-</div>    
+</div>
 {%endblock%}
