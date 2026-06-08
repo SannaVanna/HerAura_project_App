@@ -22,6 +22,7 @@ import os
 
 # app = Flask(__name__, static_folder="static")
 app = Flask(__name__, static_folder="static")
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("SQLALCHEMY_DATABASE_URI", 'sqlite:///girlUser.db')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///girlUser.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -46,7 +47,8 @@ def update_last_seen():
 
 def create_app():
     app.config['DEBUG'] = True
-    app.config['SECRET_KEY'] = 'HerAuraSecretKey54936'
+    app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+    #app.config['SECRET_KEY'] = 'HerAuraSecretKey54936'
     #app.register_blueprint(routes, url_prefix="/")
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(community_bp)

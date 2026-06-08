@@ -29,6 +29,7 @@ def api_get_mentors():
             'bio': m.bio,
             'contact_email': m.contact_email,
             'contact_url': m.contact_url,
+            'profile_image': m.profile_image,
             'on_app': m.on_app
         })
     return jsonify(data)
@@ -46,11 +47,22 @@ def api_add_mentor():
         bio = payload.get('bio'),
         contact_email = payload.get('contact_email'),
         contact_url = payload.get('contact_url'),
+        profile_image = payload.get('profile_image'),
         on_app = payload.get('on_app', False)
     )
     db.session.add(m)
     db.session.commit()
     return jsonify({'ok': True, 'id': m.id}), 201
+    
+    
+@mentor_bp.route('/api/mentors/<int:id>', methods=['DELETE'])
+def delete_mentor(id):
+    mentor = Mentor.query.get_or_404(id)
+
+    db.session.delete(mentor)
+    db.session.commit()
+
+    return jsonify({"message": "Mentor deleted"}), 200    
 
 
 # Mentor detail page

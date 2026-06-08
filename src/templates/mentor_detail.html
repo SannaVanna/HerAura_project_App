@@ -1,24 +1,142 @@
-{%extends "base.html"%}
-{%block content%}
-<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
-    <div class="profile-card">
-        <!--img src="{{ url_for('static', filename='images/daniel.jpg') }}" alt="Profile" class="profile-center"-->
-        <h2>{{ mentor.name }}</h2>
-        <p><strong>Title:</strong> {{ mentor.title }}</p>
-        <p><strong>Field:</strong> {{ mentor.field }}</p>
-        <p><strong>Bio:</strong> {{ mentor.bio }}</p>
-        <p><strong>Email:</strong> {{ mentor.contact_email }}</p>
-        {% if mentor.contact_url %}
-        <p><strong>Contact URL:</strong> 
-            <a href="{{ mentor.contact_url }}" target="_blank">{{ mentor.contact_url }}</a>
-        </p>
-        {% endif %}
-        <p><strong>Registered On:</strong> {{ mentor.date_added.strftime('%Y-%m-%d') }}</p>
+{% extends "base.html" %}
+{% block content %}
 
-        <div class="buttons">
-            <a href="mailto:{{ mentor.contact_email }} ">Message Mentor</a>
-            <a href="{{ url_for('mentor_bp.mentors_page') }}" style="background:#888;">Back</a>
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+
+<a href="{{ url_for('mentor_bp.mentors_page') }}" class="back-btn">Back</a>
+
+<div class="mentor-page">
+
+    <!-- HERO SECTION -->
+    <div class="mentor-hero">
+
+        <div class="mentor-hero-left">
+
+            <img src="{{ url_for('static',
+            filename='mentor_images/' + mentor.profile_image) }}"
+            class="mentor-avatar">
+
         </div>
+
+        <div class="mentor-hero-right">
+
+            <h1>{{ mentor.name }}</h1>
+
+            <p class="mentor-title">{{ mentor.title }}</p>
+
+            <p class="mentor-field">{{ mentor.field }}</p>
+
+            {% if mentor.on_app %}
+                <div class="status on">
+                    🟢 Available on HerAura
+                </div>
+            {% else %}
+                <div class="status off">
+                    🌐 External Mentor
+                </div>
+            {% endif %}
+
+            <div class="action-buttons">
+
+                <a href="mailto:{{ mentor.contact_email }}"
+                   class="primary-btn">
+
+                    Connect
+
+                </a>
+
+                {% if mentor.contact_url %}
+                <a href="{{ mentor.contact_url }}"
+                   target="_blank"
+                   class="secondary-btn">
+
+                    Visit Profile
+
+                </a>
+                {% endif %}
+
+            </div>
+
+        </div>
+
     </div>
 
-{%endblock%}
+    <!-- MAIN CONTENT GRID -->
+    <div class="mentor-grid">
+
+        <!-- LEFT COLUMN -->
+        <div class="mentor-main">
+
+            <section class="card">
+
+                <h2>About {{ mentor.name }}</h2>
+
+                <p>{{ mentor.bio }}</p>
+
+            </section>
+
+            <section class="card">
+
+                <h2>What she helps with</h2>
+
+                <ul>
+                    <li>Personal growth & confidence building</li>
+                    <li>Career guidance in {{ mentor.field }}</li>
+                    <li>Emotional support & mentorship</li>
+                    <li>Skill development and clarity</li>
+                </ul>
+
+            </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="mentor-side">
+
+            <div class="side-card">
+
+                <h3>Contact</h3>
+
+                <p>{{ mentor.contact_email }}</p>
+
+            </div>
+
+            <div class="side-card">
+
+                <h3>Mentor Focus</h3>
+
+                <p>{{ mentor.field }}</p>
+
+            </div>
+
+            <div class="side-card">
+
+                <h3>Mentorship Style</h3>
+
+                <p>
+                    Supportive • Calm • Practical • Empowering
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER ACTION -->
+    <div class="bottom-action">
+
+        <p>Ready to connect with {{ mentor.name }}?</p>
+
+        <a href="mailto:{{ mentor.contact_email }}"
+           class="final-btn">
+
+            Send Message
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -50,8 +50,8 @@
           </div>
   
           <div class="btn">
-            <button class="btn me-2 nav-btn1">Register</button>
-            <a class="btn me-2 nav-btn2" href="{{ url_for('auth_bp.login')}}">Already Have an account</a>
+            <button class="btn nav-btn1">Register</button>
+            <a class="btn nav-btn2" href="{{ url_for('auth_bp.login')}}">Already Have an account</a>
           </div>
         </div>
       </form>
@@ -59,3 +59,119 @@
   </div>
 </div>
 {%endblock%}
+
+
+
+
+<!--div class="container1">
+  <div class="bubble-container">
+    <-- Multiple bubbles ->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+  <div id="form-container">
+    <div class="form-wrap">
+      <h1>Sign Up</h1>
+      <p>It's free and only takes a minute</p>
+      <form method="post" autocomplete="off">
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" name="firstName" id="first-name" />
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" name="lastName" id="last-name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" />
+        </div>
+        <div class="form-group">
+          <label for="dob">Date Of Birth</label>
+          <input name="dob" type="date" class="form-control custom-input" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+        </div>
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input type="confirm password" name="pasword2" id="password2" />
+        </div>
+        <button class="btn me-2 nav-btn1">Register</button>
+        <p class="bottom-text">
+          By clicking the Sign Up button, you agree to our
+          <a href="#">Terms & Conditions</a> and
+          <a href="#">Privacy Policy</a>
+        </p>
+      </form>
+    </div>
+    <div class="login-redirect">
+      <p>Already have an account? <a href="{{ url_for('auth_bp.login')}}">Login Here</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="container1">
+  <div class="row2">
+    <div class="col-md-6 mx-auto">
+      <h3>Create an Account</h3>
+      <div class="bubble-container">
+        <-- Multiple bubbles ->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+      </div>
+      <form method="post" class="p-4 border rounded" autocomplete="off">
+        <div class="register">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label custom-label1">First name</label>
+              <input name="first_name" class="form-control custom-input1" required>
+            </div>
+            <div class="col-md-6 mb-3 custom-input-group">
+              <label class="form-label custom-label1">Last name</label>
+              <input name="last_name" class="form-control custom-input1" required>
+            </div>
+          </div>
+  
+          <div class="mb-3 custom-input-group">
+            <label class="form-label custom-label">Email</label>
+            <input name="email" type="email" class="form-control custom-input" required>
+          </div>
+  
+          <div class="mb-3 custom-input-group">
+            <label class="form-label custom-label">Date Of Birth</label>
+            <input name="dob" type="date" class="form-control custom-input" required>
+          </div>
+  
+          <div class="mb-3 custom-input-group">
+            <label class="form-label custom-label">Password</label>
+            <input name="password" type="password" class="form-control custom-input" required>
+          </div>
+  
+          <div class="mb-3 custom-input-group">
+            <label class="form-label custom-label">Confirm Password</label>
+            <input name="confirm password" type="password" class="form-control custom-input" required>
+          </div>
+  
+          <div class="btn">
+            <button class="btn me-2 nav-btn1">Register</button>
+            <a class="btn me-2 nav-btn2" href="{{ url_for('auth_bp.login')}}">Already Have an account</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div-->

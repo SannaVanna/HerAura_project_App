@@ -10,7 +10,7 @@
         </div>
         <div class="buttons">
           <a href="{{ url_for('auth_bp.register') }}" class="btn-primary">Register</a>
-          <a href="{{ url_for('auth_bp.login') }}" class="btn-secondary">login</a>
+          <a href="{{ url_for('auth_bp.login') }}" class="btn-secondary">Login</a>
         </div>
       </div>
     </section>
@@ -52,7 +52,7 @@
         <h4>Let's Connect </h4>
         <p>Have you ever felt unheard, unseen, or unsure where you truly belong?
           HerAura is a safe, supportive space for women and girls to learn, heal, grow, and rediscover their power. Whether you’re seeking guidance, community, or collaboration, you don’t have to walk alone we’re here with you.</p>
-        <a href="#" class="btn me-2 nav-btn1">Let's Connect</a>
+        <a href="#" class="contact-btn">Let's Connect</a>
       </div>
       <div class="form-container">
         <h2>Contact Us</h2>
@@ -68,7 +68,7 @@
 
           <label>Message:</label><br>
           <textarea name="message" rows="5" required></textarea><br><br>
-          <button class="btn me-2 nav-btn1" type="submit">Send</button>
+          <button class="contact-btn" type="submit">Send</button>
         </form>
       </div>
     </section>
@@ -77,8 +77,8 @@
   
   <footer class="footer">
         <div class="footer-container">
-          <div class="footer-column logo-social">
-            <div class="logo">
+          <div class="logo-social">
+            <div class="logo2">
               <img src="{{ url_for('static', filename='images/her_aura2.jpg')}}"/>
             </div>
             <p>Copyright © 2020 Nexcent ltd. <br>All rights reserved</p>
@@ -116,7 +116,7 @@
             <h4>Stay up to date</h4>
             <div class="subscribe-box">
               <input type="email" placeholder="Your email address" class="form-control custom-input2s">
-              <a>
+              <a href="{{ url_for('auth_bp.index') }}" class="send">
                 <img src="{{ url_for('static', filename='images/Send.png')}}" alt="Send">
               </a>
             </div>
