@@ -23,7 +23,8 @@ import os
 # app = Flask(__name__, static_folder="static")
 app = Flask(__name__, static_folder="static")
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("SQLALCHEMY_DATABASE_URI", 'sqlite:///girlUser.db')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///girlUser.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", 'sqlite:///girlUser.db')
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///girlUser.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
