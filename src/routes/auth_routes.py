@@ -1,28 +1,15 @@
-from flask import Blueprint, request, render_template, flash, session, redirect, url_for, g, jsonify, Request
-from src.models import db, User
-from src.flasklogin import login_manager
+from flask import Blueprint, request, render_template, flash, redirect, url_for, jsonify
+from src.models import User
 from src.db import db
-from flask_login import current_user, login_user, logout_user, login_required
-import os
+from flask_login import login_user, logout_user, login_required, current_user
 
 auth_bp = Blueprint('auth_bp', __name__)
 
 
-# ---------- Simple auth helpers (demo-only) ----------
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
-
-def current_user():
-    if 'user_id' in session:
-        return User.query.get(session['user_id'])
-    return None
-
 # ---------- Pages ----------
 @auth_bp.route('/')
 def index():
-    u = current_user()
-    if u:
+    if current_user.is_authenticated:  # Flask-Login's current_user
         return redirect(url_for('dashboard_bp.dashboard'))
     return render_template('index.html')
 
@@ -49,13 +36,10 @@ def register():
             password=password
         )
 
-        print(request.form)
         db.session.add(user)
         db.session.commit()
-        # print(user)
-        # print(User)
 
-        load_user(user.id)
+        login_user(user)  # ← Actually log them in
         flash("Registration successful.", "success")
         return redirect(url_for('dashboard_bp.dashboard'))
 
@@ -81,13 +65,16 @@ def login():
     return render_template('login.html')
 
 
-# ---------- Small utility endpoints ----------
+# ---------- Utility endpoints ----------
 @auth_bp.route('/api/profile')
 def api_profile():
-    u = current_user()
-    if not u:
+    if not current_user.is_authenticated:
         return jsonify({'error': 'not authenticated'}), 401
-    data = {'id': u.id, 'username': u.username, 'email': u.email}
+    data = {
+        'id': current_user.id,
+        'username': getattr(current_user, 'username', None),
+        'email': current_user.email
+    }
     return jsonify(data)
 
 
@@ -95,5 +82,5 @@ def api_profile():
 @login_required
 def logout():
     logout_user()
-    flash('you have been looged out.', 'info')
+    flash('You have been logged out.', 'info')
     return redirect(url_for('auth_bp.index'))
